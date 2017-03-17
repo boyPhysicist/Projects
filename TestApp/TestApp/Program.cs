@@ -14,8 +14,14 @@ namespace TestApp
             while (q != 10)
             {
                 Console.WriteLine("Hello world");
-                q+=0.1;
+                if (q == 3)
+                    {
+                    Console.WriteLine("Hello BLR!!!");
+                        }
+                q+=1;
+                
             }
+            Console.ReadLine();
         }
     }
 }

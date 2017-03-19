@@ -21,7 +21,49 @@ namespace TestApp
                 q+=1;
                 
             }
-            Console.ReadLine();
+
+            var s = "*";
+            var w="";
+            
+            for (int i = 0; i<=50; i++)
+            {
+                w = w + s;
+                
+                Console.WriteLine(w);
+            }
+
+            int x = 0;
+            do
+            {
+                Console.WriteLine(x);
+                x++;
+            } while (x <= 5);
+
+
+            int[] fibarray = new int[] { 0, 1, 1, 2, 3, 5, 8, 13 };
+            foreach (int element in fibarray)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < fibarray.Length; i++)
+            {
+                Console.WriteLine(fibarray[i]);
+            }
+            Console.WriteLine();
+
+            int count = 0;
+            foreach (int element in fibarray)
+            {
+                count += 1;
+                Console.WriteLine("Element #{0}: {1}", count, element);
+            }
+            Console.WriteLine("Количество чисел: {0}", count);
+            Console.ReadKey();
+        }
+          
+            
+        
         }
     }
-}
+

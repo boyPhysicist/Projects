@@ -12,32 +12,33 @@ namespace Mediateka.Classes
 
         public double BitPerSecond
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get;
         }
 
         public int[] Resolution
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            
         }
 
         public string Type
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            
         }
 
-
-
-        public VideoFile(string name, double size, string url) : base(name, size, url)
+        public double Time
         {
+            get;
+            
+        }
+
+        public VideoFile(string name, double size, string url, string author, double bitPerSecond, int[] resolution, string type, double time ) : base(name, size, url, author)
+        {
+            Resolution = resolution;
+            BitPerSecond = bitPerSecond;
+            Type = type;
+            Time = time;
         }
 
         

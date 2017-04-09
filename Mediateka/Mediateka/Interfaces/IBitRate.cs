@@ -12,5 +12,6 @@ namespace Mediateka.Interfaces
         {
             get;
         }
+        double Time { get; }
     }
 }

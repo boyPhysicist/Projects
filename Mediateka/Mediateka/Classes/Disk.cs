@@ -8,5 +8,6 @@ namespace Mediateka.Classes
 {
     class Disk
     {
+        //// audiodisk
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mediateka.Classes
 {
-    public class PictueFile : MediaFile, IResolution, IType
+    public class PictureFile : MediaFile, IResolution, IType
     {
         public int[] Resolution
         {
@@ -21,12 +21,13 @@ namespace Mediateka.Classes
             
         }
 
+        
 
-
-        public PictueFile(string name, double size, string url, string author, int[] resolution, string type) : base(name, size, url, author)
+        public PictureFile(string name, double size, string url, string author, int[] resolution, string type) : base(name, size, url, author)
         {
             Resolution = resolution;
             Type = type;
+            
         }
 
        

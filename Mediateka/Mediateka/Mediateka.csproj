@@ -45,10 +45,11 @@
   <ItemGroup>
     <Compile Include="Classes\AudioFile.cs" />
     <Compile Include="Classes\Compilation.cs" />
+    <Compile Include="Classes\CreatorAssembles.cs" />
     <Compile Include="Classes\Disk.cs" />
     <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\MediaFile.cs" />
-    <Compile Include="Classes\PictueFile.cs" />
+    <Compile Include="Classes\PictureFile.cs" />
     <Compile Include="Classes\Serial.cs" />
     <Compile Include="Classes\VideoFile.cs" />
     <Compile Include="Interfaces\IBitRate.cs" />

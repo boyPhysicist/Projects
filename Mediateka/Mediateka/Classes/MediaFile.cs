@@ -28,11 +28,18 @@ namespace Mediateka.Classes
             
         }
 
-        public MediaFile(string name, double size, string url)
+        public string Author
+        {
+            get;
+            
+        }
+
+        public MediaFile(string name, double size, string url, string author)
         {
             Name = name;
             Size = size;
             Url = url;
+            Author = author;
         }
     }
 }

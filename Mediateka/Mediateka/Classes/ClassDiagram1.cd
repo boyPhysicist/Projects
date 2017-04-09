@@ -1,2 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Mediateka.Classes.MediaFile" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MediaFile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Mediateka.Classes.AudioFile" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\AudioFile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Mediateka.Interfaces.IBitRate" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IBitRate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Mediateka.Interfaces.IMediaFileItems" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMediaFileItems.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Mediateka.Interfaces.IResolution" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IResolution.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Mediateka.Interfaces.IType" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

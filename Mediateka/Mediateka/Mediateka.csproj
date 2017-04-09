@@ -43,10 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AudioFile.cs" />
     <Compile Include="Classes\MediaFile.cs" />
+    <Compile Include="Classes\VideoFile.cs" />
     <Compile Include="Interfaces\IBitRate.cs" />
     <Compile Include="Interfaces\IMediaFileItems.cs" />
     <Compile Include="Interfaces\IResolution.cs" />
+    <Compile Include="Interfaces\IType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

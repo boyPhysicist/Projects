@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\AudioFile.cs" />
     <Compile Include="Classes\MediaFile.cs" />
+    <Compile Include="Classes\PictueFile.cs" />
     <Compile Include="Classes\VideoFile.cs" />
     <Compile Include="Interfaces\IBitRate.cs" />
     <Compile Include="Interfaces\IMediaFileItems.cs" />

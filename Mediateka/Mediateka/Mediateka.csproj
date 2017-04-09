@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AudioFile.cs" />
+    <Compile Include="Classes\Disk.cs" />
     <Compile Include="Classes\MediaFile.cs" />
     <Compile Include="Classes\PictueFile.cs" />
     <Compile Include="Classes\VideoFile.cs" />

@@ -27,7 +27,7 @@ namespace Mediateka.Classes
 
         }
 
-
+       
         public AudioFile(string name, double size, string url, string author, double bitPerSecond, string type, double time) : base(name, size, url, author)
         {
             BitPerSecond = bitPerSecond;

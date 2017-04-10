@@ -11,22 +11,16 @@ namespace Mediateka.Classes
     {
         public ICollection<IMediaFileItems> Items
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            
+            set;
+            
         }
 
         public string Name
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get; set;
+            
         }
     }
 }

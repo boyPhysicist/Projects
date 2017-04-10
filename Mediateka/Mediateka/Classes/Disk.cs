@@ -24,8 +24,6 @@ namespace Mediateka.Classes
         public Disk(string name, ICollection<IMediaFileItems> items)
         {
             Name = name;
-
-            ///if (items.Equals( new AudioFile("",123,"","",123,"",123))  || items.Equals(new PictueFile("ddd", 123, "dsds", "asda",null,"sdsd")))
             Items = items; 
             
         }

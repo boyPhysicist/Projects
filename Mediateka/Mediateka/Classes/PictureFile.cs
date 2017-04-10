@@ -20,7 +20,7 @@ namespace Mediateka.Classes
             get;
             
         }
-
+         
         
 
         public PictureFile(string name, double size, string url, string author, int[] resolution, string type) : base(name, size, url, author)

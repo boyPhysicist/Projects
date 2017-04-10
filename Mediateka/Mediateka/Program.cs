@@ -29,9 +29,14 @@ namespace Mediateka
             e.Add(p2);
             e.Add(p3);
             Console.WriteLine(e.Count());
-
+            
+            Console.WriteLine(e.ElementAt(1).Name);
 
             e.Add(b);
+            e.Add(p3);
+            e.Add(p3);
+            e.Add(p3);
+            Console.WriteLine(e.Count());
             Console.ReadKey();
            
         

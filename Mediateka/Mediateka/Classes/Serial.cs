@@ -11,18 +11,42 @@ namespace Mediateka.Classes
     {
         public ICollection<IMediaFileItems> Items
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get;
+        }
+
+        public ICollection<IMediaFileItems> VItems
+        {
+            get;
         }
 
         public string Name
         {
-            get
+            get;
+            
+        }
+
+        public Serial(string name, ICollection<IMediaFileItems> items, ICollection<IMediaFileItems> vItems)
+        {
+            Name = name;
+            if(items is PictureFile)
             {
-                throw new NotImplementedException();
+                Items = items;
             }
+            else
+            {
+                Console.WriteLine("Элемент должен быть типа PictureFile");
+
+            }
+
+            if(vItems is VideoFile)
+            {
+                VItems = vItems;
+            }
+            else
+            {
+                Console.WriteLine("Элемент должен быть типа VideoFile");
+            }
+
         }
     }
 }

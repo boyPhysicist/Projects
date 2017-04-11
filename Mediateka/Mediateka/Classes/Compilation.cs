@@ -7,20 +7,23 @@ using System.Threading.Tasks;
 
 namespace Mediateka.Classes
 {
-    class Compilation : IBuffer
+    class Compilation : Disk
     {
-        public ICollection<IMediaFileItems> Items
-        {
-            get;
-            
-            set;
-            
-        }
+        //public ICollection<IMediaFileItems> Items
+        //{
+        //    get;
 
-        public string Name
+        //    set;
+
+        //}
+
+        //public string Name
+        //{
+        //    get; set;
+
+        //}
+        public Compilation(string name, ICollection<IMediaFileItems> items) : base(name, items)
         {
-            get; set;
-            
         }
     }
 }

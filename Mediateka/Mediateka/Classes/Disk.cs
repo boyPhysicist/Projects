@@ -24,7 +24,9 @@ namespace Mediateka.Classes
         public Disk(string name, ICollection<IMediaFileItems> items)
         {
             Name = name;
-            Items = items; 
+            if (items is AudioFile || items is PictureFile)
+            { Items = items; }
+            else { Console.WriteLine("объект {0} не соответствует типам AudioFile и PictureFile", items.First()); }
             
         }
 

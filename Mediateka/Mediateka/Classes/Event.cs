@@ -8,82 +8,31 @@ using System.Collections;
 
 namespace Mediateka.Classes
 {
-    class Event : ICollection<IMediaFileItems>
+    class Event : IBuffer
     {
-        private ICollection<IMediaFileItems> FileItem = new List<IMediaFileItems>();
 
-        public int Count
+
+
+        public ICollection<IMediaFileItems> Items
         {
-            get
-            {
-                return FileItem.Count;
-            }
+            get;
+
         }
 
-        public bool IsReadOnly
+        public string Name
         {
-            get
-            {
-                return FileItem.IsReadOnly;
-            }
+            get;
+
         }
 
-        public void Add(IMediaFileItems item)
+        public Event(ICollection<IMediaFileItems> items, string name)
         {
-            if (item is PictureFile || item is VideoFile)
-            { FileItem.Add(item); }
-            else { Console.WriteLine("Вы пытаетесь добавить неверный элемент. Тип элемента {0}", item); }
+            if (items is PictureFile || items is VideoFile)
+            { Items = items;  }
+            else { Console.WriteLine("Вы пытаетесь добавить неверный элемент. Тип элемента {0}", items); }
+            
+            Name = name;
+
         }
-
-        public void Clear()
-        {
-            FileItem.Clear();
-        }
-
-        public bool Contains(IMediaFileItems item)
-        {
-            return FileItem.Contains(item);
-        }
-
-        public void CopyTo(IMediaFileItems[] array, int arrayIndex)
-        {
-            FileItem.CopyTo(array, arrayIndex);
-        }
-
-        public IEnumerator<IMediaFileItems> GetEnumerator()
-        {
-            return FileItem.GetEnumerator();
-        }
-
-        public bool Remove(IMediaFileItems item)
-        {
-            return FileItem.Remove(item);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return FileItem.GetEnumerator();
-        }
-
-       
-        //public ICollection<IMediaFileItems> Items
-        //{
-        //    get;
-
-        //}
-
-        //public string Name
-        //{
-        //    get;
-
-        //}
-
-        //public Event(ICollection<IMediaFileItems> items, string name)
-        //{
-
-        //    Items = items;
-        //    Name = name;
-
-        //}
     }
 }

@@ -32,34 +32,33 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Mediateka.Classes.Compilation" BaseTypeListCollapsed="true">
-    <Position X="6.75" Y="4.5" Width="1.5" />
+  <Class Name="Mediateka.Classes.Compilation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Compilation.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Disk" BaseTypeListCollapsed="true">
-    <Position X="12" Y="4.5" Width="1.5" />
+  <Class Name="Mediateka.Classes.Disk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Disk.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Event" BaseTypeListCollapsed="true">
-    <Position X="8.5" Y="4.5" Width="1.5" />
+  <Class Name="Mediateka.Classes.Event" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Event.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Serial" BaseTypeListCollapsed="true">
-    <Position X="10.25" Y="4.5" Width="1.5" />
+  <Class Name="Mediateka.Classes.Serial" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAIAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Serial.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -92,7 +91,7 @@
       <FileName>Interfaces\IType.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Mediateka.Interfaces.IBuffer" Collapsed="true">
+  <Interface Name="Mediateka.Interfaces.IBuffer">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>

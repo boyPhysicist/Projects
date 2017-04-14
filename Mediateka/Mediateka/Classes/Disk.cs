@@ -24,10 +24,7 @@ namespace Mediateka.Classes
         public Disk(string name, ICollection<IMediaFileItems> items)
         {
             Name = name;
-            if (items is PictureFile || items is VideoFile)
-            {
-                Items = items;
-            }
+            Items = items; 
             
         }
 

@@ -7,38 +7,23 @@ using System.Threading.Tasks;
 
 namespace Mediateka.Classes
 {
-    
-    class Compilation : IBuffer
+    class Compilation : Disk
     {
-        public ICollection<IMediaFileItems> Items
+        //public ICollection<IMediaFileItems> Items
+        //{
+        //    get;
+
+        //    set;
+
+        //}
+
+        //public string Name
+        //{
+        //    get; set;
+
+        //}
+        public Compilation(string name, ICollection<IMediaFileItems> items) : base(name, items)
         {
-            get;
-            
-          
-            
         }
-
-        public string Name
-        {
-            get;
-        }
-
-        public Compilation(ICollection<IMediaFileItems> items, string name)
-        {
-
-            Name = name;
-            if (items is PictureFile || items is VideoFile)
-            {
-                Items = items;
-            }
-        }
-
-
-        public void Change(int indexA, int indexB)
-        {
-            
-
-        }
-
     }
 }

@@ -14,8 +14,6 @@ namespace Mediateka.Classes
         {
             get;
 
-           
-            
         }
 
         public string Name
@@ -26,7 +24,7 @@ namespace Mediateka.Classes
         public Disk(string name, ICollection<IMediaFileItems> items)
         {
             Name = name;
-            if (items is PictureFile || items is AudioFile)
+            if (items is PictureFile || items is VideoFile)
             {
                 Items = items;
             }

@@ -15,28 +15,18 @@ namespace Mediateka
             int[] a = new int[2];
             a[0] = 1024;
             a[1] = 768;
+            ICollection<IMediaFileItems> k = new List<IMediaFileItems>;
             PictureFile p = new PictureFile("picture", 123, "jsjsjs", "phill", a, "jpeg");
             PictureFile p1 = new PictureFile("picture", 123, "jsjsjs", "phill", a, "jpeg");
             PictureFile p2 = new PictureFile("picture", 123, "jsjsjs", "phill", a, "jpeg");
             PictureFile p3 = new PictureFile("picture", 123, "jsjsjs", "phill", a, "jpeg");
             AudioFile b = new AudioFile("audio", 123, "jsjs", "phill", 256, "mp3", 120);
+            k.Add(p);
+            Event e = new Event(k,"kkkkk");
 
-            Event e = new Event();
 
-
-            e.Add(p);
-            e.Add(p1);
-            e.Add(p2);
-            e.Add(p3);
-            Console.WriteLine(e.Count());
             
-            Console.WriteLine(e.ElementAt(1).Name);
-
-            e.Add(b);
-            e.Add(p3);
-            e.Add(p3);
-            e.Add(p3);
-            Console.WriteLine(e.Count());
+            Console.WriteLine();
             Console.ReadKey();
            
         

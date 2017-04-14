@@ -13,6 +13,8 @@ namespace Mediateka.Classes
        
         public ICollection<IMediaFileItems> Items  {get;}
 
+       
+
         public string Name { get;}
 
 

@@ -32,15 +32,15 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Mediateka.Classes.Compilation" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Mediateka.Classes.Compilation" BaseTypeListCollapsed="true">
     <Position X="6.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Compilation.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Disk" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Mediateka.Classes.Disk" BaseTypeListCollapsed="true">
     <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -48,7 +48,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Event" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Mediateka.Classes.Event" BaseTypeListCollapsed="true">
     <Position X="8.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -56,7 +56,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Mediateka.Classes.Serial" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Mediateka.Classes.Serial" BaseTypeListCollapsed="true">
     <Position X="10.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>

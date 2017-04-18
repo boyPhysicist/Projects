@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Classes\AirCompany.cs" />
     <Compile Include="Classes\Airplane.cs" />
+    <Compile Include="Classes\CargoPlane.cs" />
+    <Compile Include="Classes\PassengerPlane.cs" />
+    <Compile Include="Classes\SpecialPlane.cs" />
     <Compile Include="Interfaces\ICargo.cs" />
     <Compile Include="Interfaces\IAirplanes.cs" />
     <Compile Include="Interfaces\ICompany.cs" />

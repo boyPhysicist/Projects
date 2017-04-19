@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Airline.Interfaces
 {
-    interface ICargo
+    public interface ICargo
     {
+        double MaxTakeOffWeight { get; }
+        double MaxLandingWeight { get; }
+        double EmptyWeight { get; }
+        double FuelTankCapacity { get; }
     }
 }

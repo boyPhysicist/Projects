@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Airline.Classes.AirplaneModel">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAARAAAAAAAAAAAoAAAAAEAA=</HashCode>
+      <FileName>Classes\AirplaneModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Airline.Classes.CargoPlane">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABIAAAAAAAEACAQAAAEBAAIAAAAAAAQAQAAAQAAEAA=</HashCode>
+      <FileName>Classes\CargoPlane.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Airline.Classes.PassengerPlane">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\PassengerPlane.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Airline.Classes.SpecialPlane" Collapsed="true">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\SpecialPlane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Airline.Classes.SalonClasses">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAEAAA=</HashCode>
+      <FileName>Classes\SalonClasses.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -83,12 +83,12 @@ namespace Airline.Classes
 
         public void SortByFlightRange()
         {
-            foreach(PassengerPlane item in Items)
-            {
-                var temp = Items.OrderBy(x=>x.)
+            // temp1.OrderBy(x => x.FlightRange).ToArray();
 
-            }
             
+
+           
+
         }
 
 

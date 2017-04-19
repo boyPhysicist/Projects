@@ -12,7 +12,7 @@ namespace Airline.Interfaces
     {
         string CompanyName { get; }
 
-        ICollection<IAirplanesModel> items { get; }
+        ICollection<IAirplanesModel> Items { get; }
         
         void Add(AirplaneModel item);
         void SortByFlightRange();

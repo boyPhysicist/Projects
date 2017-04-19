@@ -54,30 +54,41 @@ namespace Airline.Classes
             get;
         }
 
-        public ICollection<IAirplanesModel> items
+        public ICollection<IAirplanesModel> Items
         {
             get;
         }
 
 
-        public AirCompany()
+        public AirCompany(string companyName)
         {
-            ICollection<IAirplanesModel> items = new List<IAirplanesModel>();
+           
+            CompanyName = companyName;
+
+          Items = new List<IAirplanesModel>();
         }
         public void Add(AirplaneModel item)
         {
-            items.Add(item);
+            Items.Add(item);
             Console.WriteLine("Добавлен элемент {0}", item.Name + " " + item.Model);
         }
 
         public void ShowPlanes()
         {
-            throw new NotImplementedException();
+            foreach (AirplaneModel item in Items)
+            {
+                Console.WriteLine(item.Name+" "+item.Model);
+            }
         }
 
         public void SortByFlightRange()
         {
-            throw new NotImplementedException();
+            foreach(PassengerPlane item in Items)
+            {
+                var temp = Items.OrderBy(x=>x.)
+
+            }
+            
         }
 
 

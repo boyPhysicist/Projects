@@ -99,6 +99,11 @@ namespace Airline.Classes
             get;
         }
 
+        public override void TypeOfPlane()
+        {
+            Console.WriteLine("This is cargo plane.");
+        }
+
         public CargoPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,
                             double emptyWeight, double fuelTankCapacity, double maxTakeOffWeight, 
                             double maxLandingWeight, double flightRange, double fuelConsumptionLiterPerHour, 
@@ -174,7 +179,10 @@ namespace Airline.Classes
 
         }
 
-
+        public override void TypeOfPlane()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

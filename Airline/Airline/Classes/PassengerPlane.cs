@@ -20,6 +20,10 @@ namespace Airline.Classes
         {
             get;
         }
+        public override void TypeOfPlane()
+        {
+            Console.WriteLine("This is passenger plane.");
+        }
 
         public PassengerPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,
             double emptyWeight, double fuelTankCapacity, double maxTakeOffWeight, double maxLandingWeight, 

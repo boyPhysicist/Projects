@@ -102,7 +102,8 @@ namespace Airline.Classes
         public CargoPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,
                             double emptyWeight, double fuelTankCapacity, double maxTakeOffWeight, 
                             double maxLandingWeight, double flightRange, double fuelConsumptionLiterPerHour, 
-                            double maxHeight, double runningLenght, double meanFreePath, string enginesName, int numEngines )
+                            double maxSpeed, double maxHeight, double runningLenght, double meanFreePath, string enginesName, 
+                             int numEngines )
         {
             Name = name;
             Model = model;
@@ -147,6 +148,11 @@ namespace Airline.Classes
             { FuelConsumptionLiterPerHour = fuelConsumptionLiterPerHour; }
             else { Console.WriteLine("Please enter a valid value for FuelConsumptionLiterPerHour"); }
 
+            if (maxSpeed >= 0)
+            { MaxSpeed = maxSpeed; }
+            else { Console.WriteLine("Please enter a valid value for MaxSpeed"); }
+
+
             if (maxHeight >= 0)
             { MaxHeight = maxHeight; }
             else { Console.WriteLine("Please enter a valid value for MaxHeight"); }
@@ -159,8 +165,11 @@ namespace Airline.Classes
             { MeanFreePath = meanFreePath; }
             else { Console.WriteLine("Please enter a valid value for MeanFreePath"); }
 
+            EnginesName = enginesName;
 
-
+            if (numEngines >= 0)
+            { NumEngines = numEngines; }
+            else { Console.WriteLine("Please enter a valid value for NumEngines"); }
 
 
         }

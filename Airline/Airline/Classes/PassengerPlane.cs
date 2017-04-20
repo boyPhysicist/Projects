@@ -9,31 +9,45 @@ namespace Airline.Classes
 {
     public class PassengerPlane : CargoPlane, IPassenger
     {
-        
         public int NumSeats
         {
             get;
-            
+
         }
+
 
         public SalonClasses SalonClass
         {
             get;
         }
 
-
-        public PassengerPlane(double height, double lenght, double wingArea, double wingSpan, string name, 
-            string model, double emptyWeight, double fuelTankCapacity, double maxLandingWeight, double maxTakeOffWeight, 
-            double flightRange, double maxSpeed, double maxHeight, double runningLenght, double meanFreePath, 
-            string engines, int numEngines, double fuelConsumption, int numSeats, SalonClasses salonClass) 
-            : base(height, lenght, wingArea, wingSpan, name, model, emptyWeight, 
-                  fuelTankCapacity, maxLandingWeight, maxTakeOffWeight, flightRange, maxSpeed, 
-                  maxHeight, runningLenght, meanFreePath, engines, numEngines, fuelConsumption)
+        public PassengerPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,
+            double emptyWeight, double fuelTankCapacity, double maxTakeOffWeight, double maxLandingWeight, 
+            double flightRange, double fuelConsumptionLiterPerHour, double maxSpeed, double maxHeight, 
+            double runningLenght, double meanFreePath, string enginesName, int numEngines, int numSeats, SalonClasses salonClass) 
+            : base(name, model, height, lenght, wingArea, wingSpan, emptyWeight, fuelTankCapacity, maxTakeOffWeight, 
+                  maxLandingWeight, flightRange, fuelConsumptionLiterPerHour, maxSpeed, maxHeight, runningLenght, 
+                  meanFreePath, enginesName, numEngines)
         {
+            if (numSeats >= 0)
+            {
+                NumSeats = numSeats;
+            }
+            else
+            {
+                Console.WriteLine(" Please enter a valid value for NumSeats");
+            }
+
             SalonClass = salonClass;
-            NumSeats = numSeats;
+
         }
 
+        
+
+        
+
+
+       
 
     }
 }

@@ -16,7 +16,7 @@ namespace Airline.Classes
             get;
         }
 
-        public ICollection<AirplaneModel> Items
+        private ICollection<AirplaneModel> Items
         {
             get;
         }
@@ -37,7 +37,7 @@ namespace Airline.Classes
 
         public void ShowPlanes()
         {
-            foreach (AirplaneModel item in Items)
+            foreach (var item in Items)
             {
                 Console.WriteLine(item.Name+" "+item.Model);
             }
@@ -59,17 +59,26 @@ namespace Airline.Classes
             {
                 Console.WriteLine("There are no airplanes in this company.");
             }
-            
-            // temp.OrderBy(x => x.FlightRange).ToArray();
-
-            
-
-           
-
+             
         }
 
+        public void ShowTypeOfPlane(int index)
+        {
+            Items.ElementAt(index).TypeOfPlane();
+        }
+        public void ShowTypeOfAllPlanes()
+        {
+            foreach(var item in Items)
+            {
+                item.TypeOfPlane();
+            }
+            
+        }
+        public void SearchByFuelConsumptionRange(double min, double max)
+        {
+            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min || x.FuelConsumptionLiterPerHour < max).Select(x => x.Name);
+        }
 
-        
 
     }
 }

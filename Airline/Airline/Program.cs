@@ -29,10 +29,7 @@ namespace Airline
             AC.ShowPlanes();
             AC.SortByFlightRange();
             AC.ShowPlanes();
-            foreach(var item in AC.Items)
-            {
-                item.TypeOfPlane();
-            }
+            AC.ShowTypeOfPlane(0);
             
             //AC.Add(new SpecialPlane());
 

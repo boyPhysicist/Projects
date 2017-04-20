@@ -7,40 +7,17 @@ using System.Threading.Tasks;
 
 namespace Airline.Classes
 {
-    public class AirplaneModel : IAirplanesModel
+    public abstract class AirplaneModel 
     {
-        public double Height
-        {
-            get;
-            
-        }
+        public abstract double Height { get; }
+        public abstract double Length { get;}
+        public abstract double WingArea {get;}
+        public abstract double WingSpan {get;}
+        public abstract string Name { get;}
+        public abstract string Model { get; }
+        public abstract double FuelConsumptionLiterPerHour { get;}
+        public abstract double FlightRange { get; }
 
-        public double Length
-        {
-            get;
-        }
 
-        public double WingArea
-        {
-            get;
-        }
-
-        public double WingSpan
-        {
-            get;
-        }
-
-        public string Name { get; }
-        public string Model { get; }
-
-        public AirplaneModel(double height, double lenght, double wingArea, double wingSpan, string name, string model )
-        {
-            Height = height;
-            Length = lenght;
-            WingArea = wingArea;
-            WingSpan = wingSpan;
-            Name = name;
-            Model = model;
-        }
     }
 }

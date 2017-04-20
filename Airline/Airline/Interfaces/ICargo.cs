@@ -12,5 +12,6 @@ namespace Airline.Interfaces
         double MaxLandingWeight { get; }
         double EmptyWeight { get; }
         double FuelTankCapacity { get; }
+
     }
 }

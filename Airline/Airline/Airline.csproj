@@ -50,7 +50,6 @@
     <Compile Include="Classes\SalonClasses.cs" />
     <Compile Include="Classes\SpecialPlane.cs" />
     <Compile Include="Interfaces\ICargo.cs" />
-    <Compile Include="Interfaces\IAirplanesModel.cs" />
     <Compile Include="Interfaces\ICompany.cs" />
     <Compile Include="Interfaces\IFlyable.cs" />
     <Compile Include="Interfaces\IPassenger.cs" />

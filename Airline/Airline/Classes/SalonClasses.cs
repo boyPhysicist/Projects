@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Airline.Classes
 {
+    [Flags]
     public enum SalonClasses
     {
-        Economy,
-        EconomyBusiness,
-        EconomyBusinessFirstClass
+        Economy = 1,
+        Business = 2,
+        FirstClass = 4
 
     }
 }

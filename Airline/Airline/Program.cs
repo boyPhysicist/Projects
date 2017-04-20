@@ -12,18 +12,33 @@ namespace Airline
         static void Main(string[] args)
         {
 
-            PassengerPlane PP = new PassengerPlane(135, 125, 125, 125, "111", "700-300", 1222, 1000, 123, 123, 123, 123, 123, 123, 123, "xdfsxvc", 2, 123545, 128, SalonClasses.Economy);
-            PassengerPlane PP1 = new PassengerPlane(135, 125, 125, 125, "222", "700-300", 1222, 1000, 123, 123, 123, 123, 123, 123, 123, "xdfsxvc", 2, 123545, 128, SalonClasses.Economy);
-            PassengerPlane PP2 = new PassengerPlane(135, 125, 125, 125, "333", "700-300", 1222, 1000, 123, 123, 123, 123, 123, 123, 123, "xdfsxvc", 2, 123545, 128, SalonClasses.Economy);
-            PassengerPlane PP3 = new PassengerPlane(135, 125, 125, 125, "444", "700-300", 1222, 1000, 123, 123, 123, 123, 123, 123, 123, "xdfsxvc", 2, 123545, 128, SalonClasses.Economy);
-            PassengerPlane PP4 = new PassengerPlane(135, 125, 125, 125, "555", "700-300", 1222, 1000, 123, 123, 123, 123, 123, 123, 123, "xdfsxvc", 2, 123545, 128, SalonClasses.Economy);
-            AirCompany AC = new AirCompany("VB");
+            CargoPlane CP = new CargoPlane("Samoletik", "b171", 10, 35, 25, 17, 17000, 23000, 100000, 123123, 1231234, 123235434, 321321, 214345, 12334, 23435, "hjhjdhj", 4);
+            CargoPlane CP1 = new CargoPlane("Samoletik1", "b172", 102, 352, 252, 172, 170002, 230002, 1000002, 1231232, 12312342, 1232354342, 3213212, 2143452, 123342, 234352, "hjhjdhj", 4);
+            CargoPlane CP2 = new CargoPlane("Samoletik2", "b173", 1022, 3522, 2522, 1722, 1700022, 2300022, 10000022, 12312322, 123123422, 12323543422, 32132122, 21434522, 1233422, 2343522, "hjhjdhj", 4);
+            PassengerPlane PP = new PassengerPlane("Samoletik1", "b172", 102, 352, 252, 172, 170002, 230002, 1000002, 1231232, 12312342, 1232354342, 3213212, 2143452, 123342, 234352, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
+            PassengerPlane PP1 = new PassengerPlane("Samoletik2", "b173", 1022, 3522, 2522, 1722, 1700022, 2300022, 10000022, 12312322, 123123422, 12323543422, 32132122, 21434522, 1233422, 2343522, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
+            PassengerPlane PP2 = new PassengerPlane("Samoletik", "b171", 10, 35, 25, 17, 17000, 23000, 100000, 123123, 1231234, 123235434, 321321, 214345, 12334, 23435, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
+
+            AirCompany AC = new AirCompany("BritishAirlanes");
+            AC.Add(CP);
+            AC.Add(CP1);
+            AC.Add(CP2);
             AC.Add(PP);
             AC.Add(PP1);
             AC.Add(PP2);
-            AC.Add(PP3);
-            AC.Add(PP4);
             AC.ShowPlanes();
+            AC.SortByFlightRange();
+            AC.ShowPlanes();
+            foreach(var item in AC.Items)
+            {
+                item.TypeOfPlane();
+            }
+            
+            //AC.Add(new SpecialPlane());
+
+
+
+
 
             Console.ReadLine();
         }

@@ -16,7 +16,7 @@ namespace Airline.Classes
             get;
         }
 
-        public ICollection<IAirplanesModel> Items
+        public ICollection<AirplaneModel> Items
         {
             get;
         }
@@ -27,7 +27,7 @@ namespace Airline.Classes
            
             CompanyName = companyName;
 
-          Items = new List<IAirplanesModel>();
+          Items = new List<AirplaneModel>();
         }
         public void Add(AirplaneModel item)
         {
@@ -45,7 +45,22 @@ namespace Airline.Classes
 
         public void SortByFlightRange()
         {
-            // temp1.OrderBy(x => x.FlightRange).ToArray();
+            
+            if (Items != null)
+            {
+                var temp = Items.OrderBy(x => x.FlightRange).ToArray();
+                Items.Clear();
+                foreach(var item in temp)
+                {
+                    Items.Add(item);
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no airplanes in this company.");
+            }
+            
+            // temp.OrderBy(x => x.FlightRange).ToArray();
 
             
 

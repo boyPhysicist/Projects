@@ -179,10 +179,7 @@ namespace Airline.Classes
 
         }
 
-        public override void TypeOfPlane()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 
 

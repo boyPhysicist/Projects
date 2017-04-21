@@ -13,7 +13,7 @@ namespace Airline.Classes
             get
 
             {
-                Console.WriteLine("This is model. It does not fly.");
+                Console.WriteLine("This is SpecialPlane. It does not fly.");
                 return 0;
             }
         }
@@ -22,7 +22,7 @@ namespace Airline.Classes
         {
             get
             {
-                Console.WriteLine("This is model. It does not fly.");
+                Console.WriteLine("This is SpecialPlane. It does not fly.");
                 return 0;
             }
         }
@@ -59,7 +59,7 @@ namespace Airline.Classes
 
         public override void TypeOfPlane()
         {
-            Console.WriteLine("This is model.");
+            Console.WriteLine("This is SpecialPlane.");
         }
     }
 }

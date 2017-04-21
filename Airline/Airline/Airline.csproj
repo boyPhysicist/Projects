@@ -49,6 +49,9 @@
     <Compile Include="Classes\PassengerPlane.cs" />
     <Compile Include="Classes\SalonClasses.cs" />
     <Compile Include="Classes\SpecialPlane.cs" />
+    <Compile Include="DataLoader\DataCargoPlaneLoader.cs" />
+    <Compile Include="DataLoader\DataLoader.cs" />
+    <Compile Include="DataLoader\DataPasengerPlaneLoader.cs" />
     <Compile Include="Interfaces\ICargo.cs" />
     <Compile Include="Interfaces\ICompany.cs" />
     <Compile Include="Interfaces\IFlyable.cs" />
@@ -61,6 +64,10 @@
     <None Include="Classes\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Files\CargoData.txt" />
+    <Content Include="Files\PasData.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

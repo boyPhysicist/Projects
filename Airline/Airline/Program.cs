@@ -30,7 +30,7 @@ namespace Airline
             AC.SortByFlightRange();
             AC.ShowPlanes();
             AC.ShowTypeOfPlane(0);
-            
+           
             //AC.Add(new SpecialPlane());
 
 

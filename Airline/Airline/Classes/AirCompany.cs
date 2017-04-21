@@ -16,10 +16,11 @@ namespace Airline.Classes
             get;
         }
 
-        private ICollection<AirplaneModel> Items
-        {
-            get;
-        }
+        private ICollection<AirplaneModel> Items;
+
+        
+
+
 
 
         public AirCompany(string companyName)

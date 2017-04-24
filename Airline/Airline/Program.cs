@@ -1,4 +1,5 @@
 ﻿using Airline.Classes;
+using Airline.DataLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,17 +21,24 @@ namespace Airline
             PassengerPlane PP2 = new PassengerPlane("Samoletik", "b171", 10, 35, 25, 17, 17000, 23000, 100000, 123123, 1231234, 123235434, 321321, 214345, 12334, 23435, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
 
             AirCompany AC = new AirCompany("BritishAirlanes");
-            AC.Add(CP);
-            AC.Add(CP1);
-            AC.Add(CP2);
-            AC.Add(PP);
-            AC.Add(PP1);
-            AC.Add(PP2);
+            DataCargoPlaneLoader DL = new DataCargoPlaneLoader();
+
+            //AC.Add(CP);
+            //AC.Add(CP1);
+            //AC.Add(CP2);
+            //AC.Add(PP);
+            //AC.Add(PP1);
+            //AC.Add(PP2);
+            //AC.ShowPlanes();
+            //AC.SortByFlightRange();
+            //AC.ShowPlanes();
+            //AC.ShowTypeOfPlane(0);
+            AirplaneModel[] a = DL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt");
+            for(int i = 0; i < a.Length; i++)
+            {
+                AC.Add(a[i]);
+            }
             AC.ShowPlanes();
-            AC.SortByFlightRange();
-            AC.ShowPlanes();
-            AC.ShowTypeOfPlane(0);
-           
             //AC.Add(new SpecialPlane());
 
 

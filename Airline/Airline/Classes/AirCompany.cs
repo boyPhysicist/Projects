@@ -40,7 +40,9 @@ namespace Airline.Classes
         {
             foreach (var item in Items)
             {
+                item.TypeOfPlane();
                 Console.WriteLine(item.Name+" "+item.Model);
+                
             }
         }
 

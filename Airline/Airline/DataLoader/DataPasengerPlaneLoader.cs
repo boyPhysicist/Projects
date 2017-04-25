@@ -4,14 +4,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Airline.Classes;
+using System.IO;
 
 namespace Airline.DataLoader
 {
     public class DataPasengerPlaneLoader : DataLoader
     {
-        public override AirplaneModel[] GetData(string filePath)
+        public override AirCompany GetData(string filePath, AirCompany aC)
         {
-            throw new NotImplementedException();
+            string _path = filePath;
+            string[] temp = File.ReadAllLines(_path);
+            char _delimiterChar = ';';
+            PassengerPlane[] CP = new PassengerPlane[temp.Length];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                string[] words = temp[i].Split(_delimiterChar);
+                if (words.Length == 20)
+                {
+                    SalonClasses SC;
+                    SalonClasses SC1 ;
+                    SalonClasses SC2;
+                    SalonClasses TempSC;
+                    char _dC = ',';
+                    string[] chars = words[19].Split(_dC);
+                    if(chars.Length == 1)
+                    {
+                        if (chars[0] == "e")
+                        {
+                            SC = SalonClasses.Economy;
+                        }
+                        else if(chars[0] == "b")
+                        {
+                            SC = SalonClasses.Business;
+                        }
+                        else if (chars[0] == "f")
+                        {
+                            SC = SalonClasses.FirstClass;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Не верное значение для класса салона!!!");
+                        }
+                    }
+                    else if (chars.Length == 2)
+                    {
+
+                    }
+                    else if (chars.Length == 3)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+
+                    var a = new PassengerPlane(words[0], words[1], Convert.ToDouble(words[2]), Convert.ToDouble(words[3]),
+                        Convert.ToDouble(words[4]), Convert.ToDouble(words[5]), Convert.ToDouble(words[6]), Convert.ToDouble(words[7]),
+                        Convert.ToDouble(words[8]), Convert.ToDouble(words[9]), Convert.ToDouble(words[10]), Convert.ToDouble(words[11]),
+                        Convert.ToDouble(words[12]), Convert.ToDouble(words[13]), Convert.ToDouble(words[14]), Convert.ToDouble(words[15]),
+                        words[16], Convert.ToInt32(words[17]), Convert.ToInt32(words[18]), SC);
+
+                    CP[i] = a;
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
+
+                for (int j = 0; j < CP.Length; j++)
+                {
+                    aC.Add(CP[j]);
+                }
+            }
+
+            return aC;
         }
     }
 }

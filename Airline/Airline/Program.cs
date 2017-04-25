@@ -33,11 +33,8 @@ namespace Airline
             //AC.SortByFlightRange();
             //AC.ShowPlanes();
             //AC.ShowTypeOfPlane(0);
-            AirplaneModel[] a = DL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt");
-            for(int i = 0; i < a.Length; i++)
-            {
-                AC.Add(a[i]);
-            }
+            
+            
             AC.ShowPlanes();
             //AC.Add(new SpecialPlane());
 

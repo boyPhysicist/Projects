@@ -10,7 +10,7 @@ namespace Airline.DataLoader
 {
     public class DataCargoPlaneLoader : DataLoader
     {
-        public override AirplaneModel[] GetData(string filePath)
+        public override AirCompany GetData(string filePath, AirCompany aC)
         {
             string _path = filePath;
             string[] temp = File.ReadAllLines(_path);
@@ -35,9 +35,14 @@ namespace Airline.DataLoader
                 {
                     Console.WriteLine("Error");
                 }
+
+                for (int j = 0; j < CP.Length; j++)
+                {
+                    aC.Add(CP[j]);
+                }
             }
 
-            return CP;
+            return aC;
         }
     }
 }

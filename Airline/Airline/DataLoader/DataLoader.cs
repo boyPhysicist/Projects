@@ -10,6 +10,6 @@ namespace Airline.DataLoader
     public abstract class DataLoader
     {
    
-        public abstract AirplaneModel[] GetData(string filePath);
+        public abstract AirCompany GetData(string filePath, AirCompany aC);
     }
 }

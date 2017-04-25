@@ -48,11 +48,33 @@ namespace Airline.DataLoader
                     }
                     else if (chars.Length == 2)
                     {
-
+                        if (chars[0] == "e" || chars[1]=="b")
+                        {
+                            SC = SalonClasses.Economy|SalonClasses.Business;
+                        }
+                        else if (chars[0] == "b" || chars[1] == "f")
+                        {
+                            SC = SalonClasses.Business|SalonClasses.FirstClass;
+                        }
+                        else if (chars[0] == "f"|| chars[1] == "e")
+                        {
+                            SC = SalonClasses.Economy | SalonClasses.FirstClass;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ошибка в файле при загрузке класса салона!");
+                        }
                     }
                     else if (chars.Length == 3)
                     {
-
+                        if (chars[0] == "e" || chars[1] == "b"||chars[2]=="f")
+                        {
+                            SC = SalonClasses.Economy | SalonClasses.Business | SalonClasses.FirstClass;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ошибка в файле при загрузке класса салона!");
+                        }
                     }
                     else
                     {

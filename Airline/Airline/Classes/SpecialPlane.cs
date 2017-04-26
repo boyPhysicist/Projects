@@ -57,6 +57,23 @@ namespace Airline.Classes
             get;
         }
 
+        public override double ShowCarryingCapacity()
+        {
+            
+            return 0;
+        }
+
+        public override int ShowPassengerСapacity()
+        {
+            
+            return 0;
+        }
+
+        public override string ShowPlane()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void TypeOfPlane()
         {
             Console.WriteLine("This is SpecialPlane.");

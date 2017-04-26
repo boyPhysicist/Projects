@@ -36,12 +36,12 @@ namespace Airline.DataLoader
                     Console.WriteLine("Error");
                 }
 
-                for (int j = 0; j < CP.Length; j++)
-                {
-                    aC.Add(CP[j]);
-                }
+                
             }
-
+            for (int j = 0; j < CP.Length; j++)
+            {
+                aC.Add(CP[j]);
+            }
             return aC;
         }
     }

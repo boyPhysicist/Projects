@@ -20,6 +20,9 @@ namespace Airline.Classes
 
         public abstract void TypeOfPlane();
 
+        public abstract double ShowCarryingCapacity();
+        public abstract int ShowPassengerСapacity();
+        public abstract string ShowPlane();
 
     }
 }

@@ -99,9 +99,24 @@ namespace Airline.Classes
             get;
         }
 
+        public override int ShowPassengerСapacity()
+        {
+           return 0;
+        }
+
         public override void TypeOfPlane()
         {
             Console.WriteLine("This is cargo plane.");
+        }
+
+        public override double ShowCarryingCapacity()
+        {
+            return this.MaxTakeOffWeight-this.EmptyWeight;
+        }
+
+        public override string ShowPlane()
+        {
+            return this.Name+""+this.Model;
         }
 
         public CargoPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,

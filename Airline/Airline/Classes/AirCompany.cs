@@ -18,11 +18,6 @@ namespace Airline.Classes
 
         private ICollection<AirplaneModel> Items;
 
-        
-
-
-
-
         public AirCompany(string companyName)
         {
            
@@ -40,7 +35,7 @@ namespace Airline.Classes
         {
             foreach (var item in Items)
             {
-                item.TypeOfPlane();
+                
                 Console.WriteLine(item.Name+" "+item.Model);
                 
             }
@@ -69,6 +64,15 @@ namespace Airline.Classes
         {
             Items.ElementAt(index).TypeOfPlane();
         }
+        public void ShowPassengerСapacity()
+        {
+            int ps = 0;
+            foreach(var item in Items)
+            {
+                ps = ps + item.ShowPassengerСapacity();
+            }
+            Console.WriteLine(ps);
+        }
         public void ShowTypeOfAllPlanes()
         {
             foreach(var item in Items)
@@ -79,9 +83,24 @@ namespace Airline.Classes
         }
         public void SearchByFuelConsumptionRange(double min, double max)
         {
-            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min || x.FuelConsumptionLiterPerHour < max).Select(x => x.Name);
+            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min & x.FuelConsumptionLiterPerHour < max).Select(x => x.ShowPlane());
+            foreach(var item in q)
+            {
+                Console.WriteLine(item);
+            }
         }
 
+        public void ShowCarryingCapacity()
+        {
+            double temp = 0;
+            foreach(var item in Items)
+            {
+                temp = temp + item.ShowCarryingCapacity();
+            }
+            
 
+            Console.WriteLine("Max carrying capacity of aircompany = {0}",temp);
+        }
+        
     }
 }

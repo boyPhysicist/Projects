@@ -25,6 +25,15 @@ namespace Airline.Classes
             Console.WriteLine("This is passenger plane.");
         }
 
+        public override int ShowPassengerСapacity()
+        {
+             return this.NumSeats;
+        }
+        public override double ShowCarryingCapacity()
+        {
+            return this.MaxTakeOffWeight - this.EmptyWeight;
+        }
+
         public PassengerPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,
             double emptyWeight, double fuelTankCapacity, double maxTakeOffWeight, double maxLandingWeight, 
             double flightRange, double fuelConsumptionLiterPerHour, double maxSpeed, double maxHeight, 

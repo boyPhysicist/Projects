@@ -21,10 +21,8 @@ namespace Airline.DataLoader
                 string[] words = temp[i].Split(_delimiterChar);
                 if (words.Length == 20)
                 {
-                    SalonClasses SC;
-                    SalonClasses SC1 ;
-                    SalonClasses SC2;
-                    SalonClasses TempSC;
+                    SalonClasses SC = new SalonClasses();
+                    
                     char _dC = ',';
                     string[] chars = words[19].Split(_dC);
                     if(chars.Length == 1)
@@ -94,12 +92,12 @@ namespace Airline.DataLoader
                     Console.WriteLine("Error");
                 }
 
-                for (int j = 0; j < CP.Length; j++)
-                {
-                    aC.Add(CP[j]);
-                }
+                
             }
-
+            for (int j = 0; j < CP.Length; j++)
+            {
+                aC.Add(CP[j]);
+            }
             return aC;
         }
     }

@@ -18,11 +18,11 @@ namespace Airline.Classes
         public abstract double FuelConsumptionLiterPerHour { get;}
         public abstract double FlightRange { get; }
 
-        public abstract void TypeOfPlane();
+        public abstract string GetTypeOfPlane();
 
-        public abstract double ShowCarryingCapacity();
-        public abstract int ShowPassengerСapacity();
-        public abstract string ShowPlane();
+        public abstract double GetCarryingCapacity();
+        public abstract int GetPassengerСapacity();
+        public abstract string GetPlane();
 
     }
 }

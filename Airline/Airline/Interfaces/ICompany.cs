@@ -15,8 +15,8 @@ namespace Airline.Interfaces
         //ICollection<AirplaneModel> Items { get; }
         
         void Add(AirplaneModel item);
-        void SortByFlightRange();
-        void ShowPlanes();
+        AirplaneModel[] SortByFlightRange();
+        string[] GiveInfoForShowPlanes();
 
     }
 }

@@ -20,23 +20,22 @@ namespace Airline
             //PassengerPlane PP1 = new PassengerPlane("Samoletik2", "b173", 1022, 3522, 2522, 1722, 1700022, 2300022, 10000022, 12312322, 123123422, 12323543422, 32132122, 21434522, 1233422, 2343522, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
             //PassengerPlane PP2 = new PassengerPlane("Samoletik", "b171", 10, 35, 25, 17, 17000, 23000, 100000, 123123, 1231234, 123235434, 321321, 214345, 12334, 23435, "hjhjdhj", 4, 128, SalonClasses.Business | SalonClasses.Economy);
 
-            AirCompany AC = new AirCompany("BritishAirlanes");
+            AirCompany AC = new AirCompany("BritishAirlanes",new List<AirplaneModel>());
             DataCargoPlaneLoader DCL = new DataCargoPlaneLoader();
             DataPasengerPlaneLoader DPL = new DataPasengerPlaneLoader();
             
             DCL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt", AC);
             DPL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\PasData.txt", AC);
-            Console.WriteLine("--------------------------------------------------");
-            AC.ShowPlanes();
-            Console.WriteLine("--------------------------------------------------");
-            AC.ShowCarryingCapacity();
-            AC.ShowPassengerСapacity();
-            Console.WriteLine("--------------------------------------------------");
-            AC.SearchByFuelConsumptionRange(1000, 1900);
-            Console.WriteLine("--------------------------------------------------");
-            AC.SortByFlightRange();
-            AC.ShowPlanes();
+
+            Console.WriteLine(AC.GetCarryingCapacity());
+            Console.WriteLine(AC.GetTypeOfPlane(2));
+            foreach(var item in AC.SortByFlightRange())
+            {
+                Console.WriteLine(item.Name + " " + item.Model + " " + item.FlightRange);
+            }
+
             Console.ReadLine();
+           
         }
     }
 }

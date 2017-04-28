@@ -20,16 +20,16 @@ namespace Airline.Classes
         {
             get;
         }
-        public override void TypeOfPlane()
+        public override string GetTypeOfPlane()
         {
-            Console.WriteLine("This is passenger plane.");
+           return("This is passenger plane.");
         }
 
-        public override int ShowPassengerСapacity()
+        public override int GetPassengerСapacity()
         {
              return this.NumSeats;
         }
-        public override double ShowCarryingCapacity()
+        public override double GetCarryingCapacity()
         {
             return this.MaxTakeOffWeight - this.EmptyWeight;
         }

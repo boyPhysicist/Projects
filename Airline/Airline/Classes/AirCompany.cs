@@ -17,89 +17,86 @@ namespace Airline.Classes
         }
 
         private ICollection<AirplaneModel> Items;
+        public ICollection<AirplaneModel> TempItems
+        {
+            get { return Items; }
+        }
 
-        public AirCompany(string companyName)
+        public AirCompany(string companyName, ICollection<AirplaneModel> items)
         {
            
             CompanyName = companyName;
-
-          Items = new List<AirplaneModel>();
+            Items = items;
         }
         public void Add(AirplaneModel item)
         {
             Items.Add(item);
-            Console.WriteLine("Добавлен элемент {0}", item.Name + " " + item.Model);
         }
 
-        public void ShowPlanes()
+        public string[] GiveInfoForShowPlanes()
         {
+            int i = 0;
+            string[] temp = new string[Items.Count];
             foreach (var item in Items)
             {
-                
-                Console.WriteLine(item.Name+" "+item.Model);
-                
+                temp[i] = item.Name + " " + item.Model;
+                i += 1;
             }
+            return temp;
         }
 
-        public void SortByFlightRange()
+        public AirplaneModel[] SortByFlightRange()
         {
             
             if (Items != null)
             {
                 var temp = Items.OrderBy(x => x.FlightRange).ToArray();
-                Items.Clear();
-                foreach(var item in temp)
-                {
-                    Items.Add(item);
-                }
+                return temp;
             }
             else
             {
-                Console.WriteLine("There are no airplanes in this company.");
+                return null;
             }
-             
+
         }
 
-        public void ShowTypeOfPlane(int index)
+        public string GetTypeOfPlane(int index)
         {
-            Items.ElementAt(index).TypeOfPlane();
+           return Items.ElementAt(index).GetTypeOfPlane();
         }
-        public void ShowPassengerСapacity()
+        public int GetPassengerСapacity()
         {
             int ps = 0;
             foreach(var item in Items)
             {
-                ps = ps + item.ShowPassengerСapacity();
+                ps = ps + item.GetPassengerСapacity();
             }
-            Console.WriteLine(ps);
+            return(ps);
         }
-        public void ShowTypeOfAllPlanes()
+        public void GetTypesOfAllPlanes()
         {
             foreach(var item in Items)
             {
-                item.TypeOfPlane();
+                item.GetTypeOfPlane();
             }
             
         }
-        public void SearchByFuelConsumptionRange(double min, double max)
+        public IEnumerable<string> SearchByFuelConsumptionRange(double min, double max)
         {
-            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min & x.FuelConsumptionLiterPerHour < max).Select(x => x.ShowPlane());
-            foreach(var item in q)
-            {
-                Console.WriteLine(item);
-            }
+            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min & x.FuelConsumptionLiterPerHour < max).Select(x => x.GetPlane());
+            return q;
         }
 
-        public void ShowCarryingCapacity()
+        public double GetCarryingCapacity()
         {
             double temp = 0;
             foreach(var item in Items)
             {
-                temp = temp + item.ShowCarryingCapacity();
+                temp = temp + item.GetCarryingCapacity();
             }
-            
 
-            Console.WriteLine("Max carrying capacity of aircompany = {0}",temp);
+
+            return temp;
         }
         
     }

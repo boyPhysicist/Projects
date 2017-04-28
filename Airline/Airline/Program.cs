@@ -27,15 +27,24 @@ namespace Airline
             DCL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt", AC);
             DPL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\PasData.txt", AC);
 
-            Console.WriteLine(AC.GetCarryingCapacity());
-            Console.WriteLine(AC.GetTypeOfPlane(2));
-            foreach(var item in AC.SortByFlightRange())
+            foreach (var item in AC.GiveInfoForShowPlanes())
             {
-                Console.WriteLine(item.Name + " " + item.Model + " " + item.FlightRange);
+                Console.WriteLine(item);
             }
 
+
+
+            //foreach (var item in AC.SortByFlightRange())
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Model + " " + item.FlightRange);
+            //}
+
+            //foreach (var item in AC.SearchByFuelConsumptionRange(1000,2600))
+            //{
+            //    Console.WriteLine(item);
+            //}
             Console.ReadLine();
-           
+
         }
     }
 }

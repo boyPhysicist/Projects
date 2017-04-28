@@ -83,7 +83,7 @@ namespace Airline.Classes
         }
         public IEnumerable<string> SearchByFuelConsumptionRange(double min, double max)
         {
-            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min & x.FuelConsumptionLiterPerHour < max).Select(x => x.GetPlane());
+            var q = Items.Where(x => x.FuelConsumptionLiterPerHour > min & x.FuelConsumptionLiterPerHour < max).Select(x => x.GetPlane()+" "+x.FuelConsumptionLiterPerHour);
             return q;
         }
 

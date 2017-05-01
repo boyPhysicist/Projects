@@ -13,7 +13,7 @@ namespace Airline.Classes
             get
 
             {
-                Console.WriteLine("This is SpecialPlane. It does not fly.");
+                
                 return 0;
             }
         }
@@ -22,7 +22,7 @@ namespace Airline.Classes
         {
             get
             {
-                Console.WriteLine("This is SpecialPlane. It does not fly.");
+                
                 return 0;
             }
         }

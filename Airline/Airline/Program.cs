@@ -24,25 +24,42 @@ namespace Airline
             DataCargoPlaneLoader DCL = new DataCargoPlaneLoader();
             DataPasengerPlaneLoader DPL = new DataPasengerPlaneLoader();
             
-            DCL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt", AC);
-            DPL.GetData(@"C:\Users\Philip.SHOP\Source\Repos\Projects\Airline\Airline\Files\PasData.txt", AC);
-
+            DCL.GetData(@"C:\Users\girl-\Source\Repos\Projects\Airline\Airline\Files\CargoData.txt", AC);
+            DPL.GetData(@"C:\Users\girl-\Source\Repos\Projects\Airline\Airline\Files\PasData.txt", AC);
+            
             foreach (var item in AC.GiveInfoForShowPlanes())
             {
                 Console.WriteLine(item);
             }
 
+            Console.WriteLine("-------------------------------------------------------");
+
+            foreach (var item in AC.SortByFlightRange())
+            {
+                Console.WriteLine(item.Name + " " + item.Model + " " + item.FlightRange);
+            }
 
 
-            //foreach (var item in AC.SortByFlightRange())
-            //{
-            //    Console.WriteLine(item.Name + " " + item.Model + " " + item.FlightRange);
-            //}
+            Console.WriteLine("-------------------------------------------------------");
 
-            //foreach (var item in AC.SearchByFuelConsumptionRange(1000,2600))
-            //{
-            //    Console.WriteLine(item);
-            //}
+
+            foreach (var item in AC.SearchByFuelConsumptionRange(1000, 2600))
+            {
+                Console.WriteLine(item);
+            }
+
+
+            Console.WriteLine("-------------------------------------------------------");
+
+
+
+            //AC.TempItems.Clear();
+
+
+            foreach (var item in AC.GiveInfoForShowPlanes())
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
 
         }

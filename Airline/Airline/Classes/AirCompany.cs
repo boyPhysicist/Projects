@@ -17,10 +17,10 @@ namespace Airline.Classes
         }
 
         private ICollection<AirplaneModel> Items;
-        public ICollection<AirplaneModel> TempItems
-        {
-            get { return Items; }
-        }
+        //public ICollection<AirplaneModel> TempItems
+        //{
+        //    get { return Items; }
+        //}
 
         public AirCompany(string companyName, ICollection<AirplaneModel> items)
         {

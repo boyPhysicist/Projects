@@ -3,38 +3,37 @@
   <Class Name="Airline.Classes.AirplaneModel">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAARAAAAAAAAAAAoAAAAAEAA=</HashCode>
+      <HashCode>ABBAAAAIBAAAAIAAAAAAAARAABEAAAAAAAoAAAAAEAA=</HashCode>
       <FileName>Classes\AirplaneModel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Airline.Classes.CargoPlane">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+    <Position X="2" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABIAAAAAAAEACAQAAAEBAAIAAAAAAAQAQAAAQAAEAA=</HashCode>
+      <HashCode>ABBAAAAIBAAEAKAQAAAEBARIABEAAAAQAAoAIQAAEAA=</HashCode>
       <FileName>Classes\CargoPlane.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Airline.Classes.PassengerPlane">
-    <Position X="6" Y="4" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAAAACAQAAAAAABEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\PassengerPlane.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Airline.Classes.SpecialPlane" Collapsed="true">
-    <Position X="7.75" Y="2.25" Width="1.5" />
+  <Class Name="Airline.Classes.SpecialPlane">
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABBAAAAIBAAAAIAAAAAAAARAABEAAAAAAAoAAAAAEAA=</HashCode>
       <FileName>Classes\SpecialPlane.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Airline.Classes.SalonClasses">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Classes\SalonClasses.cs</FileName>
     </TypeIdentifier>
   </Enum>

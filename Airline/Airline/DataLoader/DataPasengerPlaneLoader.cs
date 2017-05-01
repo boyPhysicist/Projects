@@ -21,71 +21,22 @@ namespace Airline.DataLoader
                 string[] words = temp[i].Split(_delimiterChar);
                 if (words.Length == 20)
                 {
-                    SalonClasses SC = new SalonClasses();
-                    
-                    char _dC = ',';
-                    string[] chars = words[19].Split(_dC);
-                    if(chars.Length == 1)
+                    SalonClasses SC;
+                         
+                    string chars = words[19];
+                    if (Enum.TryParse(chars, out SC))
                     {
-                        if (chars[0] == "e")
-                        {
-                            SC = SalonClasses.Economy;
-                        }
-                        else if(chars[0] == "b")
-                        {
-                            SC = SalonClasses.Business;
-                        }
-                        else if (chars[0] == "f")
-                        {
-                            SC = SalonClasses.FirstClass;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Не верное значение для класса салона!!!");
-                        }
-                    }
-                    else if (chars.Length == 2)
-                    {
-                        if (chars[0] == "e" || chars[1]=="b")
-                        {
-                            SC = SalonClasses.Economy|SalonClasses.Business;
-                        }
-                        else if (chars[0] == "b" || chars[1] == "f")
-                        {
-                            SC = SalonClasses.Business|SalonClasses.FirstClass;
-                        }
-                        else if (chars[0] == "f"|| chars[1] == "e")
-                        {
-                            SC = SalonClasses.Economy | SalonClasses.FirstClass;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ошибка в файле при загрузке класса салона!");
-                        }
-                    }
-                    else if (chars.Length == 3)
-                    {
-                        if (chars[0] == "e" || chars[1] == "b"||chars[2]=="f")
-                        {
-                            SC = SalonClasses.Economy | SalonClasses.Business | SalonClasses.FirstClass;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ошибка в файле при загрузке класса салона!");
-                        }
+                        var a = new PassengerPlane(words[0], words[1], Convert.ToDouble(words[2]), Convert.ToDouble(words[3]),
+                            Convert.ToDouble(words[4]), Convert.ToDouble(words[5]), Convert.ToDouble(words[6]), Convert.ToDouble(words[7]),
+                            Convert.ToDouble(words[8]), Convert.ToDouble(words[9]), Convert.ToDouble(words[10]), Convert.ToDouble(words[11]),
+                            Convert.ToDouble(words[12]), Convert.ToDouble(words[13]), Convert.ToDouble(words[14]), Convert.ToDouble(words[15]),
+                            words[16], Convert.ToInt32(words[17]), Convert.ToInt32(words[18]), SC);
+                        CP[i] = a;
                     }
                     else
                     {
-
+                        Console.WriteLine("Erros!!!(SalonClasses)");
                     }
-
-                    var a = new PassengerPlane(words[0], words[1], Convert.ToDouble(words[2]), Convert.ToDouble(words[3]),
-                        Convert.ToDouble(words[4]), Convert.ToDouble(words[5]), Convert.ToDouble(words[6]), Convert.ToDouble(words[7]),
-                        Convert.ToDouble(words[8]), Convert.ToDouble(words[9]), Convert.ToDouble(words[10]), Convert.ToDouble(words[11]),
-                        Convert.ToDouble(words[12]), Convert.ToDouble(words[13]), Convert.ToDouble(words[14]), Convert.ToDouble(words[15]),
-                        words[16], Convert.ToInt32(words[17]), Convert.ToInt32(words[18]), SC);
-
-                    CP[i] = a;
                 }
                 else
                 {

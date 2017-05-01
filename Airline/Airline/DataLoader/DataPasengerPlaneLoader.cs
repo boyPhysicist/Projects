@@ -35,12 +35,12 @@ namespace Airline.DataLoader
                     }
                     else
                     {
-                        Console.WriteLine("Erros!!!(SalonClasses)");
+                        Console.WriteLine("Error!!!(SalonClasses)");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Error");
+                    Console.WriteLine("Error(Upload data)");
                 }
 
                 

@@ -71,7 +71,7 @@ namespace Airline.Classes
 
         public override string GetPlane()
         {
-            throw new NotImplementedException();
+            return Name + Model;
         }
 
         public override string GetTypeOfPlane()

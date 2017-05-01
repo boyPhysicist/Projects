@@ -101,6 +101,10 @@ namespace Airline.Classes
             Items.Remove(item);
             
         }
+        public void DeletePlane(AirplaneModel model)
+        {
+            Items.Remove(model);
+        }
         
     }
 }

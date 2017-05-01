@@ -48,7 +48,7 @@ namespace Airline.Classes
             }
             else
             {
-                Console.WriteLine(" Please enter a valid value for NumSeats");
+                NumSeats = 0;
             }
 
             SalonClass = salonClass;

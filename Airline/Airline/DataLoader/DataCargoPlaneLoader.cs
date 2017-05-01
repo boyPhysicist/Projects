@@ -33,7 +33,7 @@ namespace Airline.DataLoader
                 }
                 else
                 {
-                    Console.WriteLine("Error");
+                    Console.WriteLine("Error(Upload data)");
                 }
 
                 

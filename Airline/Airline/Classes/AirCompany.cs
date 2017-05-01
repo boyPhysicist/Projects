@@ -17,11 +17,7 @@ namespace Airline.Classes
         }
 
         private ICollection<AirplaneModel> Items;
-        //public ICollection<AirplaneModel> TempItems
-        //{
-        //    get { return Items; }
-        //}
-
+       
         public AirCompany(string companyName, ICollection<AirplaneModel> items)
         {
            
@@ -94,9 +90,16 @@ namespace Airline.Classes
             {
                 temp = temp + item.GetCarryingCapacity();
             }
-
-
             return temp;
+        }
+
+        public void DeletePlane(int number)
+        {
+            var item = Items.ElementAt(number);
+
+
+            Items.Remove(item);
+            
         }
         
     }

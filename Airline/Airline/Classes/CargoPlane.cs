@@ -174,7 +174,8 @@ namespace Airline.Classes
             { MeanFreePath = meanFreePath; }
             else { throw new Exception("Incorrect value"); }
             EnginesName = enginesName;
-            else { throw new Exception("Incorrect value"); }
+
+            
             if (numEngines >= 0)
             { NumEngines = numEngines; }
             else { throw new Exception("Incorrect value"); }

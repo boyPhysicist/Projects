@@ -41,6 +41,20 @@ namespace Airline.Classes
             return temp;
         }
 
+        public string[] GiveAllInfo()
+        {
+            string[] temp = new string[Items.Count];
+            int i = 0;
+            
+            foreach (var item in Items)
+            {
+                temp[i] = item.Name + " " + item.Model + " " + item.FlightRange + " " + item.FuelConsumptionLiterPerHour + " "
+                    + item.Height + " " + item.Length + " " + item.WingArea + " " + item.WingSpan;
+                i++;
+            }
+            
+            return temp;
+        }
         public AirplaneModel[] SortByFlightRange()
         {
             

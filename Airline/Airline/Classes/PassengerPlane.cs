@@ -27,11 +27,11 @@ namespace Airline.Classes
 
         public override int GetPassengerСapacity()
         {
-             return this.NumSeats;
+             return NumSeats;
         }
         public override double GetCarryingCapacity()
         {
-            return this.MaxTakeOffWeight - this.EmptyWeight;
+            return MaxTakeOffWeight - EmptyWeight;
         }
 
         public PassengerPlane(string name, string model, double height, double lenght, double wingArea, double wingSpan,

@@ -130,54 +130,54 @@ namespace Airline.Classes
 
             if(height >= 0)
              { Height = height; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (lenght >= 0)
              { Length = lenght; }
-           
+            else { throw new Exception("Incorrect value"); }
             if (wingArea >= 0)
             { WingArea = wingArea; }
-           
+            else { throw new Exception("Incorrect value"); }
 
             if (wingSpan >= 0)
             { WingSpan = wingSpan; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (emptyWeight >= 0)
             { EmptyWeight = emptyWeight; }
-           
+            else { throw new Exception("Incorrect value"); }
 
             if (fuelTankCapacity >= 0)
             { FuelTankCapacity = fuelTankCapacity; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (maxTakeOffWeight >= 0)
             { MaxTakeOffWeight = maxTakeOffWeight; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (maxLandingWeight >= 0)
             { MaxLandingWeight = maxLandingWeight; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (flightRange >= 0)
             { FlightRange = flightRange; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (fuelConsumptionLiterPerHour >= 0)
             { FuelConsumptionLiterPerHour = fuelConsumptionLiterPerHour; }
-           
+            else { throw new Exception("Incorrect value"); }
 
             if (maxSpeed >= 0)
             { MaxSpeed = maxSpeed; }
-
+            else { throw new Exception("Incorrect value"); }
             if (maxHeight >= 0)
             { MaxHeight = maxHeight; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (runningLenght >= 0)
             { RunningLenght = runningLenght; }
-            
+            else { throw new Exception("Incorrect value"); }
             if (meanFreePath >= 0)
             { MeanFreePath = meanFreePath; }
-            
+            else { throw new Exception("Incorrect value"); }
             EnginesName = enginesName;
-
+            else { throw new Exception("Incorrect value"); }
             if (numEngines >= 0)
             { NumEngines = numEngines; }
-            
+            else { throw new Exception("Incorrect value"); }
 
         }
 

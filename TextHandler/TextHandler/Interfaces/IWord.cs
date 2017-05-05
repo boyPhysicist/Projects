@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextHandler.Interfaces
 {
-    interface IWord
+    public interface IWord:ISentenceItem
     {
     }
 }

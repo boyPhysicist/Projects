@@ -7,7 +7,28 @@ using TextHandler.Interfaces;
 
 namespace TextHandler.Classes
 {
-    class Sentence:ISentence
+    public class Sentence : ISentence
     {
+        public ICollection<ISentenceItem> Items { get; }
+
+        public Sentence(ICollection<ISentenceItem> items)
+        {
+            Items = items;
+        }
+
+        public void Add(ISentenceItem item)
+        {
+            Items.Add(item);
+        }
+
+        public void Remove(ISentenceItem item)
+        {
+            Items.Remove(item);
+        }
+
+        public int GetSentenceLenght()
+        {
+            return Items.Count();
+        }
     }
 }

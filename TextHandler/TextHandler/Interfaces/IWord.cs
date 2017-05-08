@@ -7,9 +7,9 @@ using TextHandler.Classes;
 
 namespace TextHandler.Interfaces
 {
-    public interface IWord:ISentenceItem,IEnumerable<Symbol>
+    public interface IWord : ISentenceItem, IEnumerable<Symbol>
     {
         int GetWordLenght();
-        
+
     }
 }

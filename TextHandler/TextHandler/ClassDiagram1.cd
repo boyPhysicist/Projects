@@ -1,55 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TextHandler.Classes.PunctuationMark" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+    <Position X="1.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAgAA=</HashCode>
       <FileName>Classes\PunctuationMark.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextHandler.Classes.Sentence" Collapsed="true">
-    <Position X="3.25" Y="2.75" Width="1.5" />
+    <Position X="1.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Classes\Sentence.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextHandler.Classes.Word" Collapsed="true">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Position X="4" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAABAAAAAAEAIAAAAAAAAEAAAAgAAAAAA=</HashCode>
       <FileName>Classes\Word.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="TextHandler.Interfaces.ISymbol" Collapsed="true">
-    <Position X="10" Y="3.25" Width="1.5" />
+  <Class Name="TextHandler.Classes.Symbol" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\ISymbol.cs</FileName>
+      <HashCode>AAAAABAAQAAAAEAAAAAAAAAAAAAAEAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Symbol.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
   <Interface Name="TextHandler.Interfaces.ISentence" Collapsed="true">
-    <Position X="6.25" Y="1.5" Width="1.5" />
+    <Position X="6" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Interfaces\ISentence.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TextHandler.Interfaces.ISentenceItem" Collapsed="true">
-    <Position X="11" Y="1.5" Width="1.5" />
+    <Position X="10" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Interfaces\ISentenceItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TextHandler.Interfaces.IWord" Collapsed="true">
-    <Position X="12" Y="3.25" Width="1.5" />
+    <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IWord.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextHandler.Interfaces.IPunctuationMark" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPunctuationMark.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

@@ -14,7 +14,7 @@ namespace TextHandler.Classes
 
         public IEnumerator<Symbol> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return symbols.AsEnumerable().GetEnumerator();
         }
 
         public string GetTypeofItem()
@@ -24,12 +24,12 @@ namespace TextHandler.Classes
 
         public int GetWordLenght()
         {
-            throw new NotImplementedException();
+            return symbols.Length;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.symbols.GetEnumerator();
         }
 
         public Word(string chars)
@@ -38,12 +38,29 @@ namespace TextHandler.Classes
             {
                 this.symbols = chars.Select(x => new Symbol(x)).ToArray();
             }
+            else
+            {
+                symbols = null;
+            }
+        }
+        public Word(IEnumerable<Symbol> symbols)
+        {
+            this.symbols = symbols.ToArray();
         }
 
+        public string GetWord()
+        {
+           StringBuilder stringbuilder = new StringBuilder();
+            foreach (var item in symbols)
+            {
+                stringbuilder.Append(item.Chars);
+            }
+            return stringbuilder.ToString();
+        }
 
     }
 
 
 
 }
-}
+

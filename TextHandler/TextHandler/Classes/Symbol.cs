@@ -17,7 +17,7 @@ namespace TextHandler.Classes
 
         public bool IsLower()
         {
-            
+
             return chars != null && chars.Length >= 1 && char.IsLetter(chars[0]) && char.IsLower(chars[0]);
         }
         public bool IsLetter()

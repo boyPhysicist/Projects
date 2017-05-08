@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\PunctuationMarkBuilder.cs" />
+    <Compile Include="Builders\SentenceItemBuilder.cs" />
+    <Compile Include="Builders\WordBuilder.cs" />
     <Compile Include="Classes\PunctuationMark.cs" />
     <Compile Include="Classes\Sentence.cs" />
     <Compile Include="Classes\SentenceDelimeter.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="Interfaces\IPunctuationMark.cs" />
     <Compile Include="Interfaces\ISentence.cs" />
     <Compile Include="Interfaces\ISentenceItem.cs" />
+    <Compile Include="Interfaces\ISentenceItemBuilder.cs" />
     <Compile Include="Interfaces\IWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

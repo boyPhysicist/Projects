@@ -8,6 +8,8 @@ namespace TextHandler.Interfaces
 {
     public interface ISentence
     {
-        
+        IEnumerable<ISentenceItem> Item { get; }
+        void GetSentenceLenght();
+
     }
 }

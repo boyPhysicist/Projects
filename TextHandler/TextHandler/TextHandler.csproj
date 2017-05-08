@@ -45,8 +45,9 @@
   <ItemGroup>
     <Compile Include="Classes\PunctuationMark.cs" />
     <Compile Include="Classes\Sentence.cs" />
+    <Compile Include="Classes\Symbol.cs" />
     <Compile Include="Classes\Word.cs" />
-    <Compile Include="Interfaces\IMark.cs" />
+    <Compile Include="Interfaces\IPunctuationMark.cs" />
     <Compile Include="Interfaces\ISentence.cs" />
     <Compile Include="Interfaces\ISentenceItem.cs" />
     <Compile Include="Interfaces\IWord.cs" />

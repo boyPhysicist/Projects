@@ -7,7 +7,18 @@ using TextHandler.Interfaces;
 
 namespace TextHandler.Classes
 {
-    class PunctuationMark:IMark
+    class PunctuationMark :IPunctuationMark, ISentenceItem
     {
+        public Symbol Mark{ get { return this.mark; } }
+        private Symbol mark;
+        public string GetTypeofItem()
+        {
+            return "Punctuation Mark";
+        }
+        public PunctuationMark(string chars)
+        {
+            this.mark = new Symbol(chars);
+        }
     }
 }
+

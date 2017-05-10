@@ -15,7 +15,7 @@ namespace TextHandler.Classes
         public bool IsConsonant()
         {
             const string pattern = @"[aAeEiIoOuU]";
-            return !string.IsNullOrEmpty(chars) && !(Regex.Matches(chars, pattern).Count > 0);
+            return !string.IsNullOrEmpty(chars) && char.IsLetter(chars[0]) && !(Regex.Matches(String.Format("{0}", chars[0]), pattern).Count > 0);
         }
         public bool IsUpper()
         {
@@ -38,7 +38,7 @@ namespace TextHandler.Classes
         }
         public Symbol(char symbol)
         {
-           chars = symbol.ToString();
+            chars = String.Format("{0}", symbol);
         }
 
     }

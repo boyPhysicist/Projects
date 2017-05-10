@@ -9,7 +9,7 @@ namespace TextHandler.Classes
 {
     class PunctuationMark : IPunctuationMark
     {
-        public Symbol Mark { get { return this.mark; } }
+        public Symbol Mark { get { return mark; } }
         private Symbol mark;
         public string GetTypeofItem()
         {
@@ -17,7 +17,7 @@ namespace TextHandler.Classes
         }
         public PunctuationMark(string chars)
         {
-            this.mark = new Symbol(chars);
+            mark = new Symbol(chars);
         }
     }
 }

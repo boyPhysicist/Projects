@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TextHandler.Classes
@@ -10,6 +11,12 @@ namespace TextHandler.Classes
     {
         private string chars;
         public string Chars { get { return chars; } }
+
+        public bool IsConsonant()
+        {
+            const string pattern = @"[aAeEiIoOuU]";
+            return !string.IsNullOrEmpty(chars) && !(Regex.Matches(chars, pattern).Count > 0);
+        }
         public bool IsUpper()
         {
             return chars != null && chars.Length >= 1 && char.IsLetter(chars[0]) && char.IsUpper(chars[0]);
@@ -25,13 +32,13 @@ namespace TextHandler.Classes
             return chars != null && chars.Length == 1 && char.IsLetter(chars[0]);
         }
 
-        public Symbol(string chars)
+        public Symbol(string symbols)
         {
-            this.chars = chars;
+            chars = symbols;
         }
         public Symbol(char symbol)
         {
-            this.chars = symbol.ToString();
+           chars = symbol.ToString();
         }
 
     }

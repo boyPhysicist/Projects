@@ -9,10 +9,10 @@ namespace TextHandler.Classes
 {
     public class WordSeparators : IDelimeter
     {
-        private string[] wordSeparators = new string[] {" ","-",", " };
+        private string[] _wordSeparators = new string[] {" ","-",",",":",";" };
         public IEnumerable<string> Delimeter()
         {
-            return wordSeparators.AsEnumerable();
+            return _wordSeparators.AsEnumerable();
         }
     }
 }

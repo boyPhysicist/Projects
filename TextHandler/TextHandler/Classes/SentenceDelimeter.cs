@@ -9,10 +9,10 @@ namespace TextHandler.Classes
 {
     public class SentenceDelimeter : IDelimeter
     {
-        private string[] sentenceDelimeters = new string[] {".","!","?","..." };
+        private string[] _sentenceDelimeters = new string[] {".","!","?","...","!?","?!" };
         public IEnumerable<string> Delimeter()
         {
-            throw new NotImplementedException();
+            return _sentenceDelimeters.AsEnumerable();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace TextHandler.Classes
         {
             if (chars != null)
             {
-                this.symbols = chars.Select(x => new Symbol(x)).ToArray();
+               symbols = chars.Select(x => new Symbol(x)).ToArray();
             }
             else
             {

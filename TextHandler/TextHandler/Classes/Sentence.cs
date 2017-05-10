@@ -26,9 +26,30 @@ namespace TextHandler.Classes
             Items.Remove(item);
         }
 
+        public void ChageItem(ISentenceItem item1, ISentenceItem item2)
+        {
+            var a = Items.ToArray();
+            int j = 0;
+            Items.Clear();
+            foreach (var i in a)
+            {
+                if (i == item1)
+                {
+                    a[j] = item2;
+                }
+                Items.Add(i);
+                j += 1;
+            }
+
+
+
+        }
+
         public int GetSentenceLenght()
         {
+           
             return Items.Count();
         }
+        
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Classes\Sentence.cs" />
     <Compile Include="Classes\SentenceDelimeter.cs" />
     <Compile Include="Classes\Symbol.cs" />
+    <Compile Include="Classes\Text.cs" />
     <Compile Include="Classes\Word.cs" />
     <Compile Include="Classes\WordSeparators.cs" />
     <Compile Include="Interfaces\IDelimeter.cs" />

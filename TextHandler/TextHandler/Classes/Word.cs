@@ -29,7 +29,7 @@ namespace TextHandler.Classes
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.symbols.GetEnumerator();
+            return symbols.GetEnumerator();
         }
 
         public Word(string chars)

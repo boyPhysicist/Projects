@@ -9,7 +9,7 @@ namespace TextHandler.Classes
 {
     public class SentenceDelimeter : IDelimeter
     {
-        private string[] _sentenceDelimeters = new string[] {".","!","?","...","!?","?!" };
+        private readonly string[] _sentenceDelimeters = {".","!","?","...","!?","?!" };
         public IEnumerable<string> Delimeter()
         {
             return _sentenceDelimeters.AsEnumerable();

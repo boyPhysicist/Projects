@@ -9,7 +9,7 @@ namespace TextHandler.Classes
 {
     public class Text
     {
-        ICollection<ISentence> Sentenses { get; set; }
+        private ICollection<ISentence> Sentenses { get; set; }
          public Text()
         {
             Sentenses = new List<ISentence>();

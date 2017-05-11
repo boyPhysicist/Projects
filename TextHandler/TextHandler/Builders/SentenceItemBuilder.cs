@@ -7,19 +7,19 @@ using TextHandler.Interfaces;
 
 namespace TextHandler.Builders
 {
-    class SentenceItemBuilder : ISentenceItemBuilder
+    public class SentenceItemBuilder : ISentenceItemBuilder
     {
-        private PunctuationMarkBuilder punctuationMarkBuilder;
-        private WordBuilder wordBuilder;
+        private PunctuationMarkBuilder _punctuationMarkBuilder;
+        private WordBuilder _wordBuilder;
         public ISentenceItem Create(string marks)
         {
             throw new NotImplementedException();
         }
 
-        public SentenceItemBuilder(PunctuationMarkBuilder pMB, WordBuilder wB)
+        public SentenceItemBuilder(PunctuationMarkBuilder pMb, WordBuilder wB)
         {
-            punctuationMarkBuilder = pMB;
-            wordBuilder = wB;
+            _punctuationMarkBuilder = pMb;
+            _wordBuilder = wB;
         }
     }
 }

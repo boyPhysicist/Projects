@@ -59,6 +59,8 @@
     <Compile Include="Interfaces\ISentenceItem.cs" />
     <Compile Include="Interfaces\ISentenceItemBuilder.cs" />
     <Compile Include="Interfaces\IWord.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\Reader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

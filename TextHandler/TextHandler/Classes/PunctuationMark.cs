@@ -7,7 +7,7 @@ using TextHandler.Interfaces;
 
 namespace TextHandler.Classes
 {
-    class PunctuationMark : IPunctuationMark
+    public class PunctuationMark : IPunctuationMark
     {
         public Symbol Mark { get { return mark; } }
         private Symbol mark;

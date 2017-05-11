@@ -10,27 +10,37 @@ namespace TextHandler.Builders
 {
     public class PunctuationMarkBuilder : ISentenceItemBuilder
     {
-        IDictionary<string, ISentenceItem> container;
-        public ISentenceItem Create(string marks)
+        private IDictionary<string, ISentenceItem> _container;
+
+        public IDictionary<string, ISentenceItem> Container
         {
-            if (container.ContainsKey(marks))
-            { return container[marks]; }
-            else
-            { return new PunctuationMark(marks); }
+            get
+            {
+                return _container;
+            }
 
-
+            set
+            {
+                _container = value;
+            }
         }
 
-        public PunctuationMarkBuilder(SentenceDelimeter delimeter, WordSeparators separator)
+        public ISentenceItem Create(string marks)
         {
+            return Container.ContainsKey(marks) ? Container[marks] : new PunctuationMark(marks);
+        }
 
-            foreach (var d in delimeter.Delimeter())
-            {
-                container.Add(d, new PunctuationMark(d));
-            }
+        public PunctuationMarkBuilder(IDelimeter delimeter, IDelimeter separator)
+        {
+            if (delimeter != null)
+                foreach (var d in delimeter.Delimeter())
+                {
+                    Container.Add(d, new PunctuationMark(d));
+                }
+            if (separator == null) return;
             foreach (var s in separator.Delimeter())
             {
-                container.Add(s, new PunctuationMark(s));
+                Container.Add(s, new PunctuationMark(s));
             }
         }
     }

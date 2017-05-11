@@ -29,7 +29,7 @@ namespace TextHandler.Classes
         public void ChageItem(ISentenceItem item1, ISentenceItem item2)
         {
             var a = Items.ToArray();
-            int j = 0;
+            var j = 0;
             Items.Clear();
             foreach (var i in a)
             {
@@ -48,7 +48,7 @@ namespace TextHandler.Classes
         public int GetSentenceLenght()
         {
            
-            return Items.Count();
+            return Items.Count;
         }
         
     }

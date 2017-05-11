@@ -9,12 +9,20 @@ namespace TextHandler.Classes
 {
     public class Text
     {
-        ICollection<ISentence> Sentenses { get; set; }
-         public Text()
+        public ICollection<ISentence> TextSentences { get; }
+         public Text(ICollection<ISentence> sentences)
+         {
+             TextSentences = sentences;
+         }
+
+        public void Add(ISentence item)
         {
-            Sentenses = new List<ISentence>();
+            TextSentences.Add(item);
         }
 
-
+        public void DeleteItem(ISentence item)
+        {
+            TextSentences.Remove(item);
+        }
     }
 }

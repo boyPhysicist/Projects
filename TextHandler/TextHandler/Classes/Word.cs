@@ -10,11 +10,11 @@ namespace TextHandler.Classes
 {
     class Word : IWord
     {
-        private Symbol[] symbols { get; }
+        private Symbol[] Symbols { get; }
 
         public IEnumerator<Symbol> GetEnumerator()
         {
-            return symbols.AsEnumerable().GetEnumerator();
+            return Symbols.AsEnumerable().GetEnumerator();
         }
 
         public string GetTypeofItem()
@@ -24,34 +24,27 @@ namespace TextHandler.Classes
 
         public int GetWordLenght()
         {
-            return symbols.Length;
+            return Symbols.Length;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return symbols.GetEnumerator();
+            return Symbols.GetEnumerator();
         }
 
         public Word(string chars)
         {
-            if (chars != null)
-            {
-               symbols = chars.Select(x => new Symbol(x)).ToArray();
-            }
-            else
-            {
-                symbols = null;
-            }
+            Symbols = chars?.Select(x => new Symbol(x)).ToArray();
         }
         public Word(IEnumerable<Symbol> symbols)
         {
-            this.symbols = symbols.ToArray();
+            Symbols = symbols.ToArray();
         }
 
         public string GetWord()
         {
-           StringBuilder stringbuilder = new StringBuilder();
-            foreach (var item in symbols)
+           var stringbuilder = new StringBuilder();
+            foreach (var item in Symbols)
             {
                 stringbuilder.Append(item.Chars);
             }

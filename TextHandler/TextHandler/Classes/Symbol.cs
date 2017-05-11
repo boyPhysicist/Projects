@@ -9,36 +9,41 @@ namespace TextHandler.Classes
 {
     public class Symbol
     {
-        private string chars;
-        public string Chars { get { return chars; } }
+        private readonly string _chars;
+
+        public string Chars
+        {
+            get { return _chars; }
+            set { throw new NotImplementedException(); }
+        }
 
         public bool IsConsonant()
         {
             const string pattern = @"[aAeEiIoOuU]";
-            return !string.IsNullOrEmpty(chars) && char.IsLetter(chars[0]) && !(Regex.Matches(String.Format("{0}", chars[0]), pattern).Count > 0);
+            return !string.IsNullOrEmpty(_chars) && char.IsLetter(_chars[0]) && !(Regex.Matches($"{_chars[0]}", pattern).Count > 0);
         }
         public bool IsUpper()
         {
-            return chars != null && chars.Length >= 1 && char.IsLetter(chars[0]) && char.IsUpper(chars[0]);
+            return _chars != null && _chars.Length >= 1 && char.IsLetter(_chars[0]) && char.IsUpper(_chars[0]);
         }
 
         public bool IsLower()
         {
 
-            return chars != null && chars.Length >= 1 && char.IsLetter(chars[0]) && char.IsLower(chars[0]);
+            return _chars != null && _chars.Length >= 1 && char.IsLetter(_chars[0]) && char.IsLower(_chars[0]);
         }
         public bool IsLetter()
         {
-            return chars != null && chars.Length == 1 && char.IsLetter(chars[0]);
+            return _chars != null && _chars.Length == 1 && char.IsLetter(_chars[0]);
         }
 
         public Symbol(string symbols)
         {
-            chars = symbols;
+            _chars = symbols;
         }
         public Symbol(char symbol)
         {
-            chars = String.Format("{0}", symbol);
+            _chars = $"{symbol}";
         }
 
     }

@@ -13,7 +13,12 @@ namespace TextHandler.Builders
         IDictionary<string, ISentenceItem> container;
         public ISentenceItem Create(string marks)
         {
-            if (container.ContainsKey(marks)) { return container[marks]; } else { return new PunctuationMark(marks); }
+            if (container.ContainsKey(marks))
+            { return container[marks]; }
+            else
+            { return new PunctuationMark(marks); }
+
+
         }
 
         public PunctuationMarkBuilder(SentenceDelimeter delimeter, WordSeparators separator)

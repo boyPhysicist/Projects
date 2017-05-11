@@ -9,17 +9,18 @@ namespace TextHandler.Builders
 {
     public class SentenceItemBuilder : ISentenceItemBuilder
     {
-        private PunctuationMarkBuilder _punctuationMarkBuilder;
-        private WordBuilder _wordBuilder;
+        private readonly PunctuationMarkBuilder _punctuationMarkBuilder;
+        private readonly WordBuilder _wordBuilder;
         public ISentenceItem Create(string marks)
         {
-            throw new NotImplementedException();
+            var resultat = _punctuationMarkBuilder.Create(marks) ?? _wordBuilder.Create(marks);
+            return resultat;
         }
 
-        public SentenceItemBuilder(PunctuationMarkBuilder pMb, WordBuilder wB)
+        public SentenceItemBuilder(PunctuationMarkBuilder punctuationMarkBuilder, WordBuilder wordBuilder)
         {
-            _punctuationMarkBuilder = pMb;
-            _wordBuilder = wB;
+            _punctuationMarkBuilder = punctuationMarkBuilder;
+            _wordBuilder = wordBuilder;
         }
     }
 }

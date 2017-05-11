@@ -27,7 +27,7 @@ namespace TextHandler.Builders
 
         public ISentenceItem Create(string marks)
         {
-            return Container.ContainsKey(marks) ? Container[marks] : new PunctuationMark(marks);
+            return Container.ContainsKey(marks) ? Container[marks] : null;
         }
 
         public PunctuationMarkBuilder(IDelimeter delimeter, IDelimeter separator)

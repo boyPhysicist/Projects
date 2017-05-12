@@ -21,6 +21,10 @@ namespace TextHandler.Parser
 
         public IEnumerable<string> Start()
         {
+
+            PunctuationMarkBuilder punctuationMarkBuilder = new PunctuationMarkBuilder(new SentenceDelimeter(),
+                new WordSeparators());
+
             FileStream stream = new FileStream(_fileName, FileMode.Open);
             StreamReader reader = new StreamReader(stream, Encoding.Default);
             List<string> result = new List<string>();

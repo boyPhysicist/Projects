@@ -10,9 +10,9 @@ namespace TextHandler.Builders
 {
     public class PunctuationMarkBuilder : ISentenceItemBuilder
     {
-        private IDictionary<string, ISentenceItem> _container;
+        private IDictionary<string, PunctuationMark> _container;
 
-        public IDictionary<string, ISentenceItem> Container
+        public IDictionary<string, PunctuationMark> Container
         {
             get
             {

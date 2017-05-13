@@ -9,5 +9,6 @@ namespace TextHandler.Interfaces
     public interface ISentenceItem
     {
         string GetTypeofItem();
+        string GetItem();
     }
 }

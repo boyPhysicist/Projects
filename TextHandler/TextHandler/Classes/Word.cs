@@ -41,7 +41,7 @@ namespace TextHandler.Classes
             Symbols = symbols.ToArray();
         }
 
-        public string GetWord()
+        public string GetItem()
         {
            var stringbuilder = new StringBuilder();
             foreach (var item in Symbols)
@@ -51,6 +51,7 @@ namespace TextHandler.Classes
             return stringbuilder.ToString();
         }
 
+        
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TextHandler.Builders;
 using TextHandler.Classes;
@@ -19,11 +20,12 @@ namespace TextHandler.Parser
             _fileName = fileName;
         }
 
-        public IEnumerable<string> Start()
+        public IEnumerable<string[]> Start()
         {
-
+            WordBuilder wordBuilder = new WordBuilder();
             PunctuationMarkBuilder punctuationMarkBuilder = new PunctuationMarkBuilder(new SentenceDelimeter(),
                 new WordSeparators());
+            SentenceItemBuilder sentenceItemBuilder = new SentenceItemBuilder(punctuationMarkBuilder,wordBuilder);
 
             FileStream stream = new FileStream(_fileName, FileMode.Open);
             StreamReader reader = new StreamReader(stream, Encoding.Default);
@@ -34,16 +36,28 @@ namespace TextHandler.Parser
                 result.AddRange(SplitText(str, reader.EndOfStream));
             }
             reader.Close();
+            List<string[]> resultItem = new List<string[]>();
+            string  pattern = @"(\w+)|(\p{P})";
+            foreach (var item in result)
+            {
+                var matches = Regex.Matches(item, pattern);
+                string[] i = new string[matches.Count];
+                int j = 0;
+                foreach (Match match in matches)
+                {
+                    i[j] = match.Value;
+                    j += 1;
+                }
+
+                resultItem.Add(i);
+            }
 
 
-            return result;
+            return resultItem;
         }
         private IEnumerable<string> SplitText(string line, bool isLastLine)
         {
-            //PunctuationMarkBuilder punctuationMarkBuilder= new PunctuationMarkBuilder(new SentenceDelimeter(), new WordSeparators());
-            //var container = punctuationMarkBuilder.Container;
-            //var mark = container[" "];
-            // mark.Mark.Chars;
+            
             line = string.Join(" ", _line, line);
             List<string> sentences = new List<string>();
             string remained = line;

@@ -8,8 +8,14 @@ namespace TextHandler
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Parser.Parser parser = new Parser.Parser("text.txt");
+            foreach (var item in parser.Start() )
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
         }
     }
 }

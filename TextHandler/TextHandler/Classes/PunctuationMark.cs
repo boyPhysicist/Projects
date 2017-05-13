@@ -15,6 +15,12 @@ namespace TextHandler.Classes
         {
             return "Punctuation Mark";
         }
+
+        public string GetItem()
+        {
+            return mark.Chars;
+        }
+
         public PunctuationMark(string chars)
         {
             mark = new Symbol(chars);

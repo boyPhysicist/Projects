@@ -63,7 +63,14 @@ namespace TextHandler.Classes
 
         public void ChangeWords(int numberOfSentence, int lengthWords, string changingStr)
         {
+            var items = TextSentences.ElementAt(numberOfSentence).Items.Where(x => x.GetLength() == lengthWords)
+                .ToArray();
+
+
+            for(int i =0;i<items.Length;i++)
+                TextSentences.ElementAt(numberOfSentence).ChageItem(items[i], changingStr);
             
+            ;
         }
     }
 }

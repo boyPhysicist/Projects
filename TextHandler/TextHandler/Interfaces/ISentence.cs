@@ -15,5 +15,6 @@ namespace TextHandler.Interfaces
         string GetLastPunctuationMark();
         void Remove(ISentenceItem item);
         void Remove(ISentenceItem[] item);
+        void ChageItem(ISentenceItem item1, string items);
     }
 }

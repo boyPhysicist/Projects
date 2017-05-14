@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextHandler.Builders;
 using TextHandler.Interfaces;
 
 namespace TextHandler.Classes
@@ -34,18 +35,31 @@ namespace TextHandler.Classes
             
         }
 
-        public void ChageItem(ISentenceItem item1, ISentenceItem item2)
+        public void ChageItem(ISentenceItem item1, string items)
         {
             var a = Items.ToArray();
             var j = 0;
+            ISentenceItemBuilder sentenceItemBuilder= new SentenceItemBuilder(new PunctuationMarkBuilder(new SentenceDelimeter(), new WordSeparators()),new WordBuilder() );
+            char pattern = ' ';
+            var words = items.Split(pattern); 
             Items.Clear();
             foreach (var i in a)
             {
                 if (i == item1)
                 {
-                    a[j] = item2;
+                    foreach (var word in words)
+                    {
+                        a[j] = sentenceItemBuilder.Create(word);
+                        Items.Add(a[j]);
+                        j += 1;
+                    }
+
                 }
-                Items.Add(i);
+                else
+                {
+                    Items.Add(i);
+                }
+                
                 j += 1;
             }
 

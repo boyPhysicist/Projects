@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextHandler.Builders;
+using TextHandler.Classes;
+using TextHandler.Interfaces;
+using TextHandler.Parser;
 
 namespace TextHandler
 {
@@ -10,11 +14,16 @@ namespace TextHandler
     {
         public static void Main(string[] args)
         {
-            Parser.Parser parser = new Parser.Parser("text.txt");
-            foreach (var item in parser.Start() )
+            
+            TextBuilder textBuilder = new TextBuilder("text.txt");
+            Text text = textBuilder.CreatText();
+            foreach (var item in text.GetSentences().OrderBy(x => x.GetSentenceLenght()))
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.GetSentence());
             }
+
+            //text.GetSentences().OrderBy(x => x.GetSentenceLenght());
+            //Console.WriteLine(textBuilder.CreatText().GetText());
             Console.ReadLine();
         }
     }

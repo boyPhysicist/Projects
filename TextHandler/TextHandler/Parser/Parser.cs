@@ -19,7 +19,7 @@ namespace TextHandler.Parser
         {
             _fileName = fileName;
         }
-
+        public Parser() { }
         public IEnumerable<string[]> Start()
         {
             WordBuilder wordBuilder = new WordBuilder();

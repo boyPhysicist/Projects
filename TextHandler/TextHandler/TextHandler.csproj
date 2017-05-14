@@ -46,6 +46,7 @@
     <Compile Include="Builders\PunctuationMarkBuilder.cs" />
     <Compile Include="Builders\SentenceBuilder.cs" />
     <Compile Include="Builders\SentenceItemBuilder.cs" />
+    <Compile Include="Builders\TextBuilder.cs" />
     <Compile Include="Builders\WordBuilder.cs" />
     <Compile Include="Classes\PunctuationMark.cs" />
     <Compile Include="Classes\Sentence.cs" />

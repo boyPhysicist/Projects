@@ -30,6 +30,7 @@ namespace TextHandler.Parser
             {
                 result.Add(reader.ReadLine());
             }
+            stream.Close();
             return result;
 
         }

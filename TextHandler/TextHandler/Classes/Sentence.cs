@@ -47,9 +47,31 @@ namespace TextHandler.Classes
 
         public int GetSentenceLenght()
         {
-           
-            return Items.Count;
+            int i = 0;
+            foreach (var item in Items)
+            {
+                if (item.GetType() == typeof(Word))
+                {
+                    i += 1;
+                }
+            }
+            return i;
         }
-        
+
+        public string GetSentence()
+        {
+            string str = "";
+            foreach (var item in Items)
+            {
+                str = str + item.GetItem();
+            }
+            return str;
+        }
+
+        public string GetLastPunctuationMark()
+        {
+            var lastOrDefault = Items.LastOrDefault();
+            return lastOrDefault.GetItem();
+        }
     }
 }

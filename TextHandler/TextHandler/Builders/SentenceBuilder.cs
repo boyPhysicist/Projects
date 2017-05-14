@@ -11,7 +11,8 @@ namespace TextHandler.Builders
 {
     public class SentenceBuilder
     {
-        private readonly ICollection<ISentenceItem> _sentence = new List<ISentenceItem>();
+       
+        
         private readonly SentenceItemBuilder _sentenceItemBuilder;
 
         public SentenceBuilder(SentenceItemBuilder sentenceItemBuilder)
@@ -21,13 +22,32 @@ namespace TextHandler.Builders
 
         public Sentence Create(string[] sentence)
         {
+            ICollection<ISentenceItem> _sentence = new List<ISentenceItem>();
+            ISentenceItem[] sentenceItems=new ISentenceItem[sentence.Length];
             Sentence globalSentence = new Sentence(_sentence);
 
+            int i = 0;
             foreach (var item in sentence)
             {
-                globalSentence.Add(_sentenceItemBuilder.Create(item));
+                sentenceItems[i]=_sentenceItemBuilder.Create(item);
+                i++;
             }
 
+            for (int j = 0; j < sentenceItems.Length; j++)
+            {
+                _sentence.Add(sentenceItems[j]);
+                if (j + 1 == sentenceItems.Length)
+                {
+                   break; 
+                }
+                else { 
+                if (sentenceItems[j + 1].GetType() == typeof(Word))
+                {
+                    _sentence.Add(_sentenceItemBuilder.Create(" "));
+                }
+                }
+            }
+            
             return globalSentence;
         }
     }

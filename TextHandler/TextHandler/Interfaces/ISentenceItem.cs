@@ -10,5 +10,7 @@ namespace TextHandler.Interfaces
     {
         string GetTypeofItem();
         string GetItem();
+        int GetLength();
+        bool IsConsonant();
     }
 }

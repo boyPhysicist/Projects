@@ -51,7 +51,22 @@ namespace TextHandler.Classes
             return stringbuilder.ToString();
         }
 
-        
+        public void ToLower()
+        {
+            foreach (var item in Symbols)
+            {
+                item.Chars.ToLower();
+            }
+        }
+        public int GetLength()
+        {
+            return Symbols.Length;
+        }
+
+        public bool IsConsonant()
+        {
+            return Symbols[0].IsConsonant();
+        }
     }
 
 

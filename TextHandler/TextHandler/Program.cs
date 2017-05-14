@@ -17,13 +17,19 @@ namespace TextHandler
             
             TextBuilder textBuilder = new TextBuilder("text.txt");
             Text text = textBuilder.CreatText();
-            foreach (var item in text.GetSentences().OrderBy(x => x.GetSentenceLenght()))
+            
+
+            text.DeleteWordGivenLengthConsonatString(3);
+            foreach (var i in text.GetWordGivenLengthInterrogotiveSentences(2))
+            {
+                Console.WriteLine(i);
+            }
+            Console.ReadLine();
+
+            foreach (var item in text.SortBySentencesLength())
             {
                 Console.WriteLine(item.GetSentence());
             }
-
-            //text.GetSentences().OrderBy(x => x.GetSentenceLenght());
-            //Console.WriteLine(textBuilder.CreatText().GetText());
             Console.ReadLine();
         }
     }

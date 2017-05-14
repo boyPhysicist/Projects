@@ -10,7 +10,10 @@ namespace TextHandler.Interfaces
     {
         ICollection<ISentenceItem> Items { get; }
         int GetSentenceLenght();
+        IEnumerable<ISentenceItem> GetSentenceEnumerable();
         string GetSentence();
         string GetLastPunctuationMark();
+        void Remove(ISentenceItem item);
+        void Remove(ISentenceItem[] item);
     }
 }

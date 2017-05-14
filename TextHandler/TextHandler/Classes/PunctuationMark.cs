@@ -21,6 +21,16 @@ namespace TextHandler.Classes
             return mark.Chars;
         }
 
+        public int GetLength()
+        {
+            return mark.Chars.Length;
+        }
+
+        public bool IsConsonant()
+        {
+            return false;
+        }
+
         public PunctuationMark(string chars)
         {
             mark = new Symbol(chars);

@@ -25,6 +25,14 @@ namespace TextHandler.Classes
         {
             Items.Remove(item);
         }
+        public void Remove(ISentenceItem[] items)
+        {
+            foreach (var i in items)
+            {
+                Items.Remove(i);
+            }
+            
+        }
 
         public void ChageItem(ISentenceItem item1, ISentenceItem item2)
         {
@@ -44,6 +52,13 @@ namespace TextHandler.Classes
 
 
         }
+
+        public IEnumerable<ISentenceItem> GetSentenceEnumerable()
+        {
+            return Items.ToArray();
+        }
+            
+  
 
         public int GetSentenceLenght()
         {

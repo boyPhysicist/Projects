@@ -47,18 +47,19 @@ namespace TextHandler.Classes
             {
                 if (i == item1)
                 {
-                    foreach (var word in words)
-                    {
-                        a[j] = sentenceItemBuilder.Create(word);
+                    
+                        a[j] = sentenceItemBuilder.Create(items);
                         Items.Add(a[j]);
                         j += 1;
-                    }
+                   
 
                 }
                 else
                 {
                     Items.Add(i);
                 }
+                    
+                
                 
                 j += 1;
             }

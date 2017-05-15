@@ -41,7 +41,7 @@ namespace TextHandler.Builders
                    break; 
                 }
                 else { 
-                if (sentenceItems[j + 1].GetType() == typeof(Word))
+                if (sentenceItems[j + 1].GetType() == typeof(Word)&&sentenceItems[j].GetItem()!="-")
                 {
                     _sentence.Add(_sentenceItemBuilder.Create(" "));
                 }

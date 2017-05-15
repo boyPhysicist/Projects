@@ -22,11 +22,6 @@ namespace TextHandler.Parser
         public Parser() { }
         public IEnumerable<string[]> Start()
         {
-            WordBuilder wordBuilder = new WordBuilder();
-            PunctuationMarkBuilder punctuationMarkBuilder = new PunctuationMarkBuilder(new SentenceDelimeter(),
-                new WordSeparators());
-            SentenceItemBuilder sentenceItemBuilder = new SentenceItemBuilder(punctuationMarkBuilder,wordBuilder);
-
             FileStream stream = new FileStream(_fileName, FileMode.Open);
             StreamReader reader = new StreamReader(stream, Encoding.Default);
             List<string> result = new List<string>();
@@ -52,7 +47,7 @@ namespace TextHandler.Parser
                 resultItem.Add(i);
             }
 
-
+            stream.Close();
             return resultItem;
         }
         private IEnumerable<string> SplitText(string line, bool isLastLine)

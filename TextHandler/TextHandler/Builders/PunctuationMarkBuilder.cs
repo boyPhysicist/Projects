@@ -10,7 +10,7 @@ namespace TextHandler.Builders
 {
     public class PunctuationMarkBuilder : ISentenceItemBuilder
     {
-        IDictionary<string, PunctuationMark> _container = new Dictionary<string, PunctuationMark>();
+        readonly IDictionary<string, PunctuationMark> _container = new Dictionary<string, PunctuationMark>();
 
         
 

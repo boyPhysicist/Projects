@@ -17,22 +17,38 @@ namespace TextHandler
 
             TextBuilder textBuilder = new TextBuilder("text.txt");
             Text text = textBuilder.CreatText();
+            
 
+            foreach (var item in text.TextSentences)
+            {
+                Console.WriteLine(item.GetSentence());
+            }
             text.ChangeWords(1, 2, "hey hey");
             Console.WriteLine(text.TextSentences.ElementAt(1).GetSentence());
-            //    text.DeleteWordGivenLengthConsonatString(3);
-            //    foreach (var i in text.GetWordGivenLengthInterrogotiveSentences(2))
-            //    {
-            //        Console.WriteLine(i);
-            //    }
-            //    Console.ReadLine();
+            Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+            text.DeleteWordGivenLengthConsonatString(2);
+            Console.WriteLine(text.GetText());
+            Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+            foreach (var i in text.GetWordGivenLengthInterrogotiveSentences(3))
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 
-            //    foreach (var item in text.SortBySentencesLength())
-            //    {
-            //        Console.WriteLine(item.GetSentence());
-            //    }
+
+            foreach (var item in text.SortBySentencesLength())
+            {
+                Console.WriteLine(item.GetSentence());
+            }
+            Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+
+            Reader reader = new Reader("text.txt");
+            foreach (var item in reader.Read())
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
-            //}
+
         }
     }
 }

@@ -32,35 +32,29 @@ namespace TextHandler.Classes
             {
                 Items.Remove(i);
             }
-            
+
         }
 
         public void ChageItem(ISentenceItem item1, string items)
         {
             var a = Items.ToArray();
             var j = 0;
-            ISentenceItemBuilder sentenceItemBuilder= new SentenceItemBuilder(new PunctuationMarkBuilder(new SentenceDelimeter(), new WordSeparators()),new WordBuilder() );
+            ISentenceItemBuilder sentenceItemBuilder = new SentenceItemBuilder(new PunctuationMarkBuilder(new SentenceDelimeter(), new WordSeparators()), new WordBuilder());
             char pattern = ' ';
-            var words = items.Split(pattern); 
+            var words = items.Split(pattern);
             Items.Clear();
             foreach (var i in a)
             {
                 if (i == item1)
                 {
-                    
-                        a[j] = sentenceItemBuilder.Create(items);
-                        Items.Add(a[j]);
-                        j += 1;
-                   
-
+                    a[j] = sentenceItemBuilder.Create(items);
+                    Items.Add(a[j]);
+                    j += 1;
                 }
                 else
                 {
                     Items.Add(i);
                 }
-                    
-                
-                
                 j += 1;
             }
 
@@ -72,8 +66,8 @@ namespace TextHandler.Classes
         {
             return Items.ToArray();
         }
-            
-  
+
+
 
         public int GetSentenceLenght()
         {

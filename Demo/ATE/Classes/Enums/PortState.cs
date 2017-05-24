@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace ATE.Classes.Enums
 {
+    [Flags]
     public enum PortState
     {
         Connected,
         Disconnected,
         Blocked,
-        UnBlocked
+        UnBlocked,
+        FreeToCall
 
     }
 }

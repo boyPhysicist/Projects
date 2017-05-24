@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ATE.Classes.Enums;
 
 namespace ATE.Interfaces
 {
@@ -11,8 +10,8 @@ namespace ATE.Interfaces
     {
         int TerminalNumber { get;}
         IPort Port { get; }
-        TerminalStates State { get; }
-        void Connect(IPort port);
-
+        void Call(int number);
+        void PutDownPhone();
+        void Answer();
     }
 }

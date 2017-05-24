@@ -21,7 +21,7 @@ namespace ATE.Classes
         {
             Port = port;
             TerminalNumber = number;
-            
+            Calling += Port.ConnectToServer;
         }
         public void Answer()
         {
@@ -31,7 +31,6 @@ namespace ATE.Classes
         public void Call(int number)
         {
             Tuple<int,int> x = new Tuple<int, int>(TerminalNumber,number);
-            Calling +=Port.ConnectToServer;
             Calling?.Invoke(x);
         }
 

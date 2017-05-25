@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BillingSystem.Interfaces
 {
-    interface IContract
+    public interface IContract
     {
+        
+        int Id { get; }
+        int GiveTerminalNumber();
+        ISubscriber Subscriber { get; }
+        ITariffPlan TariffPlan { get; }
+        IDictionary<DateTime, Tuple<DateTime, DateTime, double>> StatisticCalls { get; }
     }
 }

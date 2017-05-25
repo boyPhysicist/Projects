@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Class1.cs" />
+    <Compile Include="Classes\BaseTariffPlan.cs" />
+    <Compile Include="Classes\BillingSystem.cs" />
+    <Compile Include="Classes\Contract.cs" />
+    <Compile Include="Classes\SubFeeFreeTariffPlan.cs" />
+    <Compile Include="Classes\Subscriber.cs" />
+    <Compile Include="Classes\UnlimTariffPlan.cs" />
     <Compile Include="Interfaces\IContract.cs" />
     <Compile Include="Interfaces\ISubscriber.cs" />
+    <Compile Include="Interfaces\ITariffPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

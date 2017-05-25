@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BillingSystem.Interfaces
 {
-    interface ISubscriber
+    public interface ISubscriber
     {
+        string Name { get; }
+        int Age { get; }
+        int Id { get; }
+
     }
 }

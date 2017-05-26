@@ -15,28 +15,29 @@ namespace ATE.Classes
         private readonly Server _server;
         public PortState EconomyPortState { get; set; }
 
-        public delegate void MethodBox(Tuple<int, int,DateTime> param);
+        public delegate void MethodBox(Tuple<int, int> param);
 
         public event MethodBox Calling;
 
         public Port(Server server)
         {
             _server = server;
-            PortState = PortState.Disconnected;
+            PortState = PortState.Disconnected|PortState.Busy;
             EconomyPortState = PortState.UnBlocked;
         }
 
         public void Connect()
         {
-            PortState = PortState.Connected;
+            PortState = PortState.Connected | PortState.FreeToCall;
         }
 
         public void ConnectToServer(Tuple<int, int> param)
         {
-            Tuple<int, int, DateTime> serverData = new Tuple<int, int, DateTime>(param.Item1,
-                param.Item2, DateTime.Now);
+            Tuple<int, int> serverData = new Tuple<int, int>(param.Item1,
+                param.Item2);
             Calling += _server.CallHandler;
             Calling?.Invoke(serverData);
+            Calling -= _server.CallHandler;
         }
 
         public void Disconnect()
@@ -52,6 +53,12 @@ namespace ATE.Classes
         public void UnBlock()
         {
             EconomyPortState = PortState.UnBlocked;
+        }
+
+        public void WhaitAnswer()
+        {
+            PortState = PortState.Connected | PortState.Busy;
+            
         }
     }
 }

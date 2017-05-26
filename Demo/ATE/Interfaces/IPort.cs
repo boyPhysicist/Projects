@@ -9,11 +9,11 @@ namespace ATE.Interfaces
 {
     public interface IPort
     {
-        PortState PortState { get; }
-        PortState EconomyPortState { get; }
+        PortState PortState { get;}
+        PortState EconomyPortState { get;}
         void Connect();
         void Disconnect();
         void ConnectToServer(Tuple<int,int> param);
-
+        void WhaitAnswer();
     }
 }

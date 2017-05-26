@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ATE.Classes.Enums
 {
-    public enum TerminalStates
+    public enum TerminalState
     {
-        NetworkDisconnect,
-        CallWaiting,
+        Waiting,
         IncomingCall,
         OutgoingCall
     }

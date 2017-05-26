@@ -13,7 +13,8 @@ namespace ATE.Classes.Enums
         Disconnected,
         Blocked,
         UnBlocked,
-        FreeToCall
+        FreeToCall,
+        Busy
 
     }
 }

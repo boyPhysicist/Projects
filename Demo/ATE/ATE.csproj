@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Enums\PortState.cs" />
-    <Compile Include="Classes\Enums\TerminalStates.cs" />
+    <Compile Include="Classes\Enums\TerminalState.cs" />
     <Compile Include="Classes\Port.cs" />
     <Compile Include="Classes\Server.cs" />
     <Compile Include="Classes\Terminal.cs" />

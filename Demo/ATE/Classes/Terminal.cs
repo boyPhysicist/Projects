@@ -46,10 +46,18 @@ namespace ATE.Classes
         public void PutDownPhone()
         {
             _stopTime = DateTime.Now;
+            _terminalState = TerminalState.Waiting;
+        }
+
+        public void PutDownPhone(object server,int terminalNumber)
+        {
+            _stopTime = DateTime.Now;
+            _terminalState = TerminalState.Waiting;
         }
 
         public void WaitAnswer(object server,int incomingNumber)
         {
+            
             _terminalState = TerminalState.IncomingCall;
         }
     }

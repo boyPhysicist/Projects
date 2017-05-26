@@ -11,10 +11,7 @@ namespace ATE.Classes
 {
     public class Server
     {
-       
-
         private IDictionary<IPort,ITerminal> ServerLib { get; }
-
         public event EventHandler<int> CallHandlerEvent;
         public Server()
         {
@@ -28,7 +25,10 @@ namespace ATE.Classes
 
         public void CallHandler(Tuple<int, int> info)
         {
-          var targetPort = ServerLib.Where(x => x.Value.TerminalNumber == info.Item2).Select(x => x.Key).ElementAt(0);
+          var targetPort = ServerLib
+                .Where(x => x.Value.TerminalNumber == info.Item2)
+                .Select(x => x.Key)
+                .ElementAt(0);
             if (targetPort.PortState == (PortState.Connected|PortState.FreeToCall))
             {
                 targetPort.WhaitAnswer();
@@ -38,7 +38,13 @@ namespace ATE.Classes
             }
             else
             {
-                
+                CallHandlerEvent +=
+                    ServerLib[
+                            ServerLib.Where(x => x.Value.TerminalNumber == info.Item1)
+                            .Select(x => x.Key)
+                            .ElementAt(0)]
+                        .PutDownPhone;
+                CallHandlerEvent?.Invoke(new DateTime(), info.Item2);
             }
             
 

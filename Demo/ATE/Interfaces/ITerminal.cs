@@ -14,6 +14,7 @@ namespace ATE.Interfaces
         IPort Port { get; }
         void Call(int number);
         void PutDownPhone();
+        void PutDownPhone(object server, int terminalNumber);
         void Answer();
         void WaitAnswer(object server,int number);
     }

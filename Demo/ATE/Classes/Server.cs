@@ -34,6 +34,7 @@ namespace ATE.Classes
                 targetPort.WhaitAnswer();
                 CallHandlerEvent += ServerLib[targetPort].WaitAnswer;
                 CallHandlerEvent?.Invoke(this, info.Item1);
+                CallHandlerEvent -= ServerLib[targetPort].WaitAnswer;
             }
             else
             {

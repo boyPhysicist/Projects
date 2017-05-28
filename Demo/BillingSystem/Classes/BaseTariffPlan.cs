@@ -24,8 +24,9 @@ namespace BillingSystem.Classes
 
         public double CalculateCallCost(Tuple<DateTime,DateTime> callTiming)
         {
-            double cost = (callTiming.Item2.Hour * 60 * 60 + callTiming.Item2.Minute * 60 + callTiming.Item2.Second)
-                          * _costPerTimeUnit / _timeUnit;
+            double cost = Math.Ceiling((double)(callTiming.Item2.Hour * 60 * 60 + callTiming.Item2.Minute * 60 + callTiming.Item2.Second)/_timeUnit
+                -(double)(callTiming.Item1.Hour * 60 * 60 + callTiming.Item1.Minute * 60 + callTiming.Item1.Second) / _timeUnit)*_costPerTimeUnit;
+
 
             return cost;
         }

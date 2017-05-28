@@ -10,6 +10,7 @@ namespace BillingSystem.Interfaces
     {
         DateTime CallStart { get; }
         DateTime CallStop { get; }
+        TimeSpan ConversationDuration { get; }
         int TargetNumber { get; }
         double CallCoast { get; }
     }

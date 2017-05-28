@@ -7,12 +7,12 @@ using BillingSystem.Interfaces;
 
 namespace BillingSystem.Classes
 {
-    class CallStatistic : ICallStatistic
+    public class CallStatistic : ICallStatistic
     {
         public DateTime CallStart { get; }
 
         public DateTime CallStop { get; }
-
+        public TimeSpan ConversationDuration { get; }
         public int TargetNumber { get; }
 
         public double CallCoast { get; }
@@ -23,6 +23,7 @@ namespace BillingSystem.Classes
             CallStop = callStop;
             TargetNumber = targetNumber;
             CallCoast = callCoast;
+            ConversationDuration = callStop.Subtract(CallStart);
         }
     }
 }

@@ -37,6 +37,7 @@ namespace ATE.Classes
         {
             Tuple<int, int> serverData = new Tuple<int, int>(param.Item1,
                 param.Item2);
+            PortState = PortState.Connected | PortState.Busy;
             Calling += _server.CallHandler;
             Calling?.Invoke(serverData);
             Calling -= _server.CallHandler;

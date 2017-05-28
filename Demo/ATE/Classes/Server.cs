@@ -35,34 +35,53 @@ namespace ATE.Classes
 
         public void CallHandler(Tuple<int, int> info)
         {
-          var targetPort = ServerLib
-                .Where(x => x.Value.TerminalNumber == info.Item2)
-                .Select(x => x.Key)
-                .ElementAt(0);
-            if (targetPort.PortState == (PortState.Connected|PortState.FreeToCall))
+            try
             {
-                targetPort.WhaitAnswer();
-                CallHandlerEvent += ServerLib[targetPort].WaitAnswer;
-                CallHandlerEvent?.Invoke(this, info.Item1);
-                CallHandlerEvent -= ServerLib[targetPort].WaitAnswer;
+                var targetPort = ServerLib
+                    .Where(x => x.Value.TerminalNumber == info.Item2)
+                    .Select(x => x.Key)
+                    .ElementAt(0);
+                if (targetPort.PortState == (PortState.Connected | PortState.FreeToCall))
+                {
+                    targetPort.WhaitAnswer();
+                    CallHandlerEvent += ServerLib[targetPort].WaitAnswer;
+                    CallHandlerEvent?.Invoke(this, info.Item1);
+                    CallHandlerEvent -= ServerLib[targetPort].WaitAnswer;
+                }
+                else
+                {
+                    CallHandlerEvent +=
+                        ServerLib[
+                                ServerLib.Where(x => x.Value.TerminalNumber == info.Item1)
+                                    .Select(x => x.Key)
+                                    .ElementAt(0)]
+                            .PutDownPhone;
+                    CallHandlerEvent?.Invoke(this, info.Item1);
+                }
             }
-            else
+            catch (Exception e)
             {
-                CallHandlerEvent +=
-                    ServerLib[
-                            ServerLib.Where(x => x.Value.TerminalNumber == info.Item1)
-                            .Select(x => x.Key)
-                            .ElementAt(0)]
-                        .PutDownPhone;
-                CallHandlerEvent?.Invoke(new DateTime(), info.Item2);
+                Console.WriteLine(e);
+                //throw;
             }
+            finally
+            {
+                ServerLib.Where(x => x.Value.TerminalNumber == info.Item1).ElementAt(0).Value.PutDownPhone(this, info.Item1);
+            }
+
+
+
+
+            
             
             
         }
 
         public void CreateDataForBillingSys(Tuple<int, int, DateTime, DateTime> data)
         {
-           DataSendEvent?.Invoke(data);
+            var a =ServerLib.Where(x => x.Value.TerminalNumber == data.Item1).ElementAt(0).Value;
+            a.PutDownPhone(this,data.Item1);
+            DataSendEvent?.Invoke(data);
         }
 
     }

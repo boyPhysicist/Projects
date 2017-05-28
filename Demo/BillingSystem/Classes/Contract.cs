@@ -13,7 +13,7 @@ namespace BillingSystem.Classes
         public ISubscriber Subscriber { get; }
         public ITariffPlan TariffPlan { get; set; }
         public ICollection<ICallStatistic> StatisticCalls { get; }
-        public readonly int TerminalNumber;
+        public int TerminalNumber { get; }
 
         public Contract(int id, ISubscriber subscriber, ITariffPlan tariffPlan)
         {

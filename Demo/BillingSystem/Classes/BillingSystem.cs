@@ -9,7 +9,7 @@ namespace BillingSystem.Classes
 {
     public class BillingSystem
     {
-        public IDictionary<int, IContract> BillSys { get; }
+        private IDictionary<int, IContract> BillSys { get; }
 
         public BillingSystem()
         {

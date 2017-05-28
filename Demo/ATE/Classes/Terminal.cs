@@ -20,6 +20,7 @@ namespace ATE.Classes
         public delegate void MethodBox(Tuple<int, int> param);
         public event MethodBox Calling;
         public event EventHandler<Tuple<int, int, DateTime, DateTime>> SendDataEvent;
+        public event Action StatusChange;
         public Terminal(int number, IPort port)
         {
             _terminalState = TerminalState.Waiting;
@@ -37,6 +38,7 @@ namespace ATE.Classes
 
         public void Call(int number)
         {
+            StatusChange += Port.Connect;
             _terminalState = TerminalState.OutgoingCall;
             _starTime = DateTime.Now;
             Calling += Port.ConnectToServer;
@@ -49,14 +51,21 @@ namespace ATE.Classes
         {
             _stopTime = DateTime.Now;
             _terminalState = TerminalState.Waiting;
+            StatusChange?.Invoke();
             SendDataEvent?.Invoke(this, new Tuple<int, int, DateTime, DateTime>(_incomingNumber, TerminalNumber, _starTime, _stopTime));
+            SendDataEvent -= Port.SendData;
+            StatusChange -= Port.Connect;
         }
 
         public void PutDownPhone(object server,int terminalNumber)
         {
-            _stopTime = DateTime.Now;
-            _terminalState = TerminalState.Waiting;
-            SendDataEvent?.Invoke(this,new Tuple<int, int, DateTime, DateTime>(_incomingNumber,TerminalNumber,_starTime,_stopTime));
+            if (typeof(Server) == server.GetType()&&TerminalNumber==terminalNumber)
+            {
+                _terminalState = TerminalState.Waiting;
+                StatusChange?.Invoke();
+                SendDataEvent -= Port.SendData;
+                StatusChange -= Port.Connect;
+            }
         }
 
         public void WaitAnswer(object server,int incomingNumber)

@@ -46,17 +46,22 @@ namespace Demo
             server.AddContactPair(terminal3);
             server.AddContactPair(terminal4);
 
-            terminal1.Call(100001);
-
+            terminal1.Call(100002);
             Console.WriteLine(terminal1.TerminalState.ToString());
-            //terminal2.Answer();
-            //Thread.Sleep(5000);
-            //terminal2.PutDownPhone();
-            //terminal1.Call(100003);
-            //terminal3.Answer();
-            //Thread.Sleep(3000);
-            //terminal3.PutDownPhone();
-            //Console.WriteLine(contract1.StatisticCalls.Count);
+            terminal2.Answer();
+            Thread.Sleep(5000);
+            terminal2.PutDownPhone();
+            terminal1.Call(100003);
+            terminal3.Answer();
+            Thread.Sleep(3000);
+            terminal3.PutDownPhone();
+            terminal2.Call(100003);
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            terminal3.Answer();
+            Thread.Sleep(5000);
+            terminal3.PutDownPhone();
+
+            Console.WriteLine(contract1.StatisticCalls.Count);
             Console.ReadLine();
 
         }

@@ -26,5 +26,7 @@ namespace BillingSystem.Classes
             BillSys[data.Item1].AddStatisticCalls(new CallStatistic(data.Item3,data.Item4,data.Item2,
                 BillSys[data.Item1].TariffPlan.CalculateCallCost(new Tuple<DateTime, DateTime>(data.Item3,data.Item4))));
         }
+
+        
     }
 }

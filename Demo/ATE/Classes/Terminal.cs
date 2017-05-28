@@ -26,6 +26,7 @@ namespace ATE.Classes
             _terminalState = TerminalState.Waiting;
             Port = port;
             TerminalNumber = number;
+            StatusChange += Port.Connect;
         }
         public void Answer()
         {
@@ -38,7 +39,7 @@ namespace ATE.Classes
 
         public void Call(int number)
         {
-            StatusChange += Port.Connect;
+            
             _terminalState = TerminalState.OutgoingCall;
             _starTime = DateTime.Now;
             Calling += Port.ConnectToServer;
@@ -54,7 +55,7 @@ namespace ATE.Classes
             StatusChange?.Invoke();
             SendDataEvent?.Invoke(this, new Tuple<int, int, DateTime, DateTime>(_incomingNumber, TerminalNumber, _starTime, _stopTime));
             SendDataEvent -= Port.SendData;
-            StatusChange -= Port.Connect;
+            
         }
 
         public void PutDownPhone(object server,int terminalNumber)
@@ -64,7 +65,7 @@ namespace ATE.Classes
                 _terminalState = TerminalState.Waiting;
                 StatusChange?.Invoke();
                 SendDataEvent -= Port.SendData;
-                StatusChange -= Port.Connect;
+                
             }
         }
 

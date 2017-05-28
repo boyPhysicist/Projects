@@ -11,14 +11,15 @@ namespace ATE.Classes
     public class Terminal : ITerminal
     {
         public int TerminalNumber { get; }
-        public IPort Port { get;}
-        private TerminalState _terminalState;
-        public TerminalState TerminalState => _terminalState;
+        private int _incomingNumber;
         private DateTime _starTime;
         private DateTime _stopTime;
+        public IPort Port { get; }
+        private TerminalState _terminalState;
+        public TerminalState TerminalState => _terminalState;
         public delegate void MethodBox(Tuple<int, int> param);
         public event MethodBox Calling;
-
+        public event EventHandler<Tuple<int, int, DateTime, DateTime>> SendDataEvent;
         public Terminal(int number, IPort port)
         {
             _terminalState = TerminalState.Waiting;
@@ -30,6 +31,7 @@ namespace ATE.Classes
             if (_terminalState == TerminalState.IncomingCall)
             {
                 _starTime = DateTime.Now;
+                SendDataEvent += Port.SendData;
             }
         }
 
@@ -47,18 +49,20 @@ namespace ATE.Classes
         {
             _stopTime = DateTime.Now;
             _terminalState = TerminalState.Waiting;
+            SendDataEvent?.Invoke(this, new Tuple<int, int, DateTime, DateTime>(_incomingNumber, TerminalNumber, _starTime, _stopTime));
         }
 
         public void PutDownPhone(object server,int terminalNumber)
         {
             _stopTime = DateTime.Now;
             _terminalState = TerminalState.Waiting;
+            SendDataEvent?.Invoke(this,new Tuple<int, int, DateTime, DateTime>(_incomingNumber,TerminalNumber,_starTime,_stopTime));
         }
 
         public void WaitAnswer(object server,int incomingNumber)
         {
-            
             _terminalState = TerminalState.IncomingCall;
+            _incomingNumber = incomingNumber;
         }
     }
 }

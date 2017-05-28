@@ -10,6 +10,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATE", "ATE\ATE.csproj", "{F015292C-2F03-42F0-ACA2-B86BEC0431D2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E4B4A7B8-8B8F-4D1A-9371-6F1E6529632E} = {E4B4A7B8-8B8F-4D1A-9371-6F1E6529632E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem", "BillingSystem\BillingSystem.csproj", "{E4B4A7B8-8B8F-4D1A-9371-6F1E6529632E}"
 EndProject

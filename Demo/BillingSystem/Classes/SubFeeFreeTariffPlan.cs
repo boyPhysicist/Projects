@@ -22,7 +22,7 @@ namespace BillingSystem.Classes
             TimeUnit = 60;
         }
 
-        public Tuple<DateTime, DateTime, double> CalculateCallCost(Tuple<DateTime, DateTime> callTiming)
+        public double CalculateCallCost(Tuple<DateTime, DateTime> callTiming)
         {
             double cost = (callTiming.Item2.Hour * 60 * 60 + callTiming.Item2.Minute * 60 + callTiming.Item2.Second)
                           * CostPerTimeUnit / TimeUnit;
@@ -31,7 +31,7 @@ namespace BillingSystem.Classes
                 cost = CostPerTimeUnit;
             }
 
-            return new Tuple<DateTime, DateTime, double>(callTiming.Item1, callTiming.Item2, cost);
+            return cost;
         }
     }
 }

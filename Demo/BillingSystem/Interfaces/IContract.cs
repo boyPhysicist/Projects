@@ -12,7 +12,8 @@ namespace BillingSystem.Interfaces
         int Id { get; }
         int GiveTerminalNumber();
         ISubscriber Subscriber { get; }
-        ITariffPlan TariffPlan { get; }
-        IDictionary<DateTime, Tuple<DateTime, DateTime, double>> StatisticCalls { get; }
+        ITariffPlan TariffPlan { get; set; }
+        ICollection<ICallStatistic> StatisticCalls { get; }
+        void AddStatisticCalls(ICallStatistic callStatistic);
     }
 }

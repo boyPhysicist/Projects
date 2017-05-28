@@ -11,6 +11,8 @@ namespace ATE.Interfaces
     {
         PortState PortState { get;}
         PortState EconomyPortState { get;}
+        void SendData(object obj, Tuple<int, int, DateTime, DateTime> data);
+
         void Connect();
         void Disconnect();
         void ConnectToServer(Tuple<int,int> param);

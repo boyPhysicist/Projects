@@ -10,7 +10,7 @@ namespace BillingSystem.Interfaces
 {
     public interface ITariffPlan
     {
-        Tuple<DateTime,DateTime,double> CalculateCallCost(Tuple<DateTime,DateTime> callTiming);
+        double CalculateCallCost(Tuple<DateTime,DateTime> callTiming);
         double SubscriptionFee { get; set; }
         string Name { get; }
     }

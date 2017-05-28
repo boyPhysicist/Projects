@@ -8,9 +8,9 @@ namespace ATE.Interfaces
 {
     public interface IServer
     {
-        IDictionary<IPort,ITerminal> ServerComposition { get; set; }
-        Tuple<string, DateTime, string> SendData();
-        void Connect();
-        void Disconnect();
+
+        IDictionary<IPort, ITerminal> ServerLib { get; }
+        void CreateDataForBillingSys(Tuple<int, int, DateTime, DateTime> data);
+        
     }
 }

@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using ATE.Classes.Enums;
 using ATE.Interfaces;
 
+
+
+
 namespace ATE.Classes
 {
-    public class Server
+    public class Server:IServer
     {
-        private IDictionary<IPort,ITerminal> ServerLib { get; }
+        private  BillingSystem.Classes.BillingSystem BillingSystem { get; }
+        public IDictionary<IPort,ITerminal> ServerLib { get; }
         public event EventHandler<int> CallHandlerEvent;
-        public Server()
+        public delegate void DataSender(Tuple<int, int, DateTime, DateTime> data);
+
+        public event DataSender DataSendEvent;
+        public Server(BillingSystem.Classes.BillingSystem billingSystem)
         {
+            BillingSystem = billingSystem;
             ServerLib = new Dictionary<IPort, ITerminal>();
+            DataSendEvent += BillingSystem.AddData;
         }
 
         public void AddContactPair(ITerminal terminal)
@@ -47,7 +57,12 @@ namespace ATE.Classes
                 CallHandlerEvent?.Invoke(new DateTime(), info.Item2);
             }
             
+            
+        }
 
+        public void CreateDataForBillingSys(Tuple<int, int, DateTime, DateTime> data)
+        {
+           DataSendEvent?.Invoke(data);
         }
 
     }

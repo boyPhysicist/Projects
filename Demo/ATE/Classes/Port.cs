@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +15,17 @@ namespace ATE.Classes
         public PortState PortState { get; set; }
         private readonly Server _server;
         public PortState EconomyPortState { get; set; }
-
         public delegate void MethodBox(Tuple<int, int> param);
-
+        public delegate void DataBox(Tuple<int, int, DateTime, DateTime> data);
         public event MethodBox Calling;
+        public event DataBox DataSending;
 
         public Port(Server server)
         {
             _server = server;
             PortState = PortState.Disconnected|PortState.Busy;
             EconomyPortState = PortState.UnBlocked;
+            DataSending += _server.CreateDataForBillingSys;
         }
 
         public void Connect()
@@ -38,6 +40,11 @@ namespace ATE.Classes
             Calling += _server.CallHandler;
             Calling?.Invoke(serverData);
             Calling -= _server.CallHandler;
+        }
+
+        public void SendData(object obj, Tuple<int, int, DateTime, DateTime> data)
+        {
+            DataSending?.Invoke(data);
         }
 
         public void Disconnect()

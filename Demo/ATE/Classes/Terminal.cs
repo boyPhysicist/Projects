@@ -12,6 +12,7 @@ namespace ATE.Classes
     {
         public int TerminalNumber { get; }
         private int _incomingNumber;
+        private int _outgoingnumber;
         private DateTime _starTime;
         private DateTime _stopTime;
         public IPort Port { get; }
@@ -27,19 +28,20 @@ namespace ATE.Classes
             Port = port;
             TerminalNumber = number;
             StatusChange += Port.Connect;
+            SendDataEvent += Port.SendData;
         }
         public void Answer()
         {
             if (_terminalState == TerminalState.IncomingCall)
             {
                 _starTime = DateTime.Now;
-                SendDataEvent += Port.SendData;
+                
             }
         }
 
         public void Call(int number)
         {
-            
+            _outgoingnumber = number;
             _terminalState = TerminalState.OutgoingCall;
             _starTime = DateTime.Now;
             Calling += Port.ConnectToServer;
@@ -51,11 +53,13 @@ namespace ATE.Classes
         public void PutDownPhone()
         {
             _stopTime = DateTime.Now;
-            _terminalState = TerminalState.Waiting;
-            StatusChange?.Invoke();
-            SendDataEvent?.Invoke(this, new Tuple<int, int, DateTime, DateTime>(_incomingNumber, TerminalNumber, _starTime, _stopTime));
-            SendDataEvent -= Port.SendData;
-            
+            //_terminalState = TerminalState.Waiting;
+            //StatusChange?.Invoke();
+            SendDataEvent?.Invoke(this,
+                TerminalState == TerminalState.OutgoingCall
+                    ? new Tuple<int, int, DateTime, DateTime>(TerminalNumber, _outgoingnumber, _starTime, _stopTime)
+                    : new Tuple<int, int, DateTime, DateTime>(_incomingNumber, TerminalNumber, _starTime, _stopTime));
+            //SendDataEvent -= Port.SendData;
         }
 
         public void PutDownPhone(object server,int terminalNumber)
@@ -64,7 +68,7 @@ namespace ATE.Classes
             {
                 _terminalState = TerminalState.Waiting;
                 StatusChange?.Invoke();
-                SendDataEvent -= Port.SendData;
+                //SendDataEvent -= Port.SendData;
                 
             }
         }

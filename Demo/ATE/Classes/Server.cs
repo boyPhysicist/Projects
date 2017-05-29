@@ -56,19 +56,18 @@ namespace ATE.Classes
             catch (Exception e)
             {
                 Console.WriteLine("error in number!!!");
-                //throw;
+                ServerLib.Where(x => x.Value.TerminalNumber == info.Item1).ElementAt(0).Value
+                    .PutDownPhone(this, info.Item1);
             }
-            finally
-            {
-                //ServerLib.Where(x => x.Value.TerminalNumber == info.Item1).ElementAt(0).Value.PutDownPhone(this, info.Item1);
-            }
+
+            
         }
 
         public void CreateDataForBillingSys(Tuple<int, int, DateTime, DateTime> data)
         {
-            var a =ServerLib.Where(x => x.Value.TerminalNumber == data.Item1).ElementAt(0).Value;
-            a.PutDownPhone(this,data.Item1);
-            
+            ServerLib.Where(x => x.Value.TerminalNumber == data.Item1).ElementAt(0).Value.PutDownPhone(this, data.Item1);
+            ServerLib.Where(x => x.Value.TerminalNumber == data.Item2).ElementAt(0).Value.PutDownPhone(this, data.Item2);
+
             DataSendEvent?.Invoke(data);
         }
 

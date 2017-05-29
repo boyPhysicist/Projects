@@ -10,15 +10,17 @@ namespace BillingSystem.Classes
     public class BillingSystem
     {
         private IDictionary<int, IContract> BillSys { get; }
-
+        
         public BillingSystem()
         {
             BillSys = new Dictionary<int, IContract>();
+            
         }
 
         public void AddUser(IContract contract)
         {
             BillSys.Add(contract.GiveTerminalNumber(),contract);
+            
         }
 
         public void AddData(Tuple<int, int, DateTime, DateTime> data)
@@ -27,6 +29,20 @@ namespace BillingSystem.Classes
                 BillSys[data.Item1].TariffPlan.CalculateCallCost(new Tuple<DateTime, DateTime>(data.Item3,data.Item4))));
         }
 
-        
+        public double InvoiceForCalls(ICollection<ICallStatistic> statistics, int month)
+        {
+            return statistics.Where(x => x.CallStart.Month == month).Select(x => x.CallCoast).Sum();
+        }
+
+        public double MonthBiLL(int telephoneNumber,int month)
+        {
+            return InvoiceForCalls(BillSys[telephoneNumber].StatisticCalls, month) +
+                   BillSys[telephoneNumber].TariffPlan.SubscriptionFee;
+        }
+
+        private void DebitFromAccounts()
+        {
+            
+        }
     }
 }

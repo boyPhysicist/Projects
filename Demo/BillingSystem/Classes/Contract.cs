@@ -14,6 +14,7 @@ namespace BillingSystem.Classes
         public ITariffPlan TariffPlan { get; set; }
         public ICollection<ICallStatistic> StatisticCalls { get; }
         public int TerminalNumber { get; }
+        public double CashAccount { get; private set; }
 
         public Contract(int id, ISubscriber subscriber, ITariffPlan tariffPlan)
         {
@@ -22,7 +23,7 @@ namespace BillingSystem.Classes
             TariffPlan = tariffPlan;
             StatisticCalls =new List<ICallStatistic>();
             TerminalNumber = GiveTerminalNumber();
-
+            CashAccount = 0;
         }
         public int GiveTerminalNumber()
         {
@@ -53,6 +54,11 @@ namespace BillingSystem.Classes
         public IEnumerable<ICallStatistic> GetByNumber(int number)
         {
             return StatisticCalls.Select(x => x).Where(x => x.TargetNumber == number);
+        }
+
+        public void CashAccountChange(double summ)
+        {
+            CashAccount += summ;
         }
     }
 }

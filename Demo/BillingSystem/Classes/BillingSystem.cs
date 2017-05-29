@@ -34,15 +34,18 @@ namespace BillingSystem.Classes
             return statistics.Where(x => x.CallStart.Month == month).Select(x => x.CallCoast).Sum();
         }
 
-        public double MonthBiLL(int telephoneNumber,int month)
+        public double MonthBill(int telephoneNumber,int month)
         {
             return InvoiceForCalls(BillSys[telephoneNumber].StatisticCalls, month) +
                    BillSys[telephoneNumber].TariffPlan.SubscriptionFee;
         }
 
-        private void DebitFromAccounts()
+        public void DebitFromAccounts(DateTime date)
         {
-            
+            foreach (var item in BillSys)
+            {
+                item.Value.CashAccountChange(MonthBill(item.Key,date.Month));
+            }
         }
     }
 }

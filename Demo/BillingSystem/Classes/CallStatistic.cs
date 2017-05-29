@@ -10,7 +10,7 @@ namespace BillingSystem.Classes
     public class CallStatistic : ICallStatistic
     {
         public DateTime CallStart { get; }
-
+        public double CashAccount { get; }
         public DateTime CallStop { get; }
         public TimeSpan ConversationDuration { get; }
         public int TargetNumber { get; }

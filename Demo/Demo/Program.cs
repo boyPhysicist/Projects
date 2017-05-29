@@ -49,81 +49,49 @@ namespace Demo
             server.AddContactPair(terminal3);
             server.AddContactPair(terminal4);
 
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal2.TerminalState.ToString());
-            //terminal1.Call(terminal2.TerminalNumber);
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal2.TerminalState.ToString());
-            //terminal2.Answer();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal2.TerminalState.ToString());
-            //Thread.Sleep(2000);
-            //terminal2.PutDownPhone();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal2.TerminalState.ToString());
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal2.TerminalState.ToString());
+            terminal1.Call(terminal2.TerminalNumber);
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal2.TerminalState.ToString());
+            terminal2.Answer();
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal2.TerminalState.ToString());
+            Thread.Sleep(2000);
+            terminal2.PutDownPhone();
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal2.TerminalState.ToString());
 
-            //Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
 
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //terminal1.Call(terminal3.TerminalNumber);
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //terminal3.Answer();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //Thread.Sleep(3000);
-            //terminal3.PutDownPhone();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-
-            //Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //terminal1.Call(terminal4.TerminalNumber);
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //terminal4.Answer();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //Thread.Sleep(4000);
-            //terminal4.PutDownPhone();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-
-            //Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //terminal1.Call(terminal3.TerminalNumber);
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //terminal3.Answer();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-            //Thread.Sleep(5000);
-            //terminal3.PutDownPhone();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal3.TerminalState.ToString());
-
-            //Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //terminal1.Call(terminal4.TerminalNumber);
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //terminal4.Answer();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-            //Thread.Sleep(6000);
-            //terminal4.PutDownPhone();
-            //Console.WriteLine(terminal1.TerminalState.ToString());
-            //Console.WriteLine(terminal4.TerminalState.ToString());
-
-            //Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal3.TerminalState.ToString());
+            terminal1.Call(terminal3.TerminalNumber);
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal3.TerminalState.ToString());
+            terminal3.Answer();
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal3.TerminalState.ToString());
+            Thread.Sleep(3000);
+            terminal3.PutDownPhone();
+            Console.WriteLine(terminal1.TerminalState.ToString());
+            Console.WriteLine(terminal3.TerminalState.ToString());
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            terminal1.Call(terminal4.TerminalNumber);
+            terminal4.Answer();
+            Thread.Sleep(4000);
+            terminal4.PutDownPhone();
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            terminal1.Call(terminal3.TerminalNumber);
+            terminal3.Answer();
+            Thread.Sleep(5000);
+            terminal3.PutDownPhone();
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            terminal1.Call(terminal4.TerminalNumber);
+            terminal4.Answer();
+            Thread.Sleep(6000);
+            terminal4.PutDownPhone();
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
             Console.WriteLine(terminal1.TerminalState.ToString());
             Console.WriteLine(terminal2.TerminalState.ToString());
             terminal1.Call(terminal2.TerminalNumber);
@@ -136,9 +104,24 @@ namespace Demo
             terminal1.PutDownPhone();
             Console.WriteLine(terminal1.TerminalState.ToString());
             Console.WriteLine(terminal2.TerminalState.ToString());
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            Console.WriteLine("-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
 
-
-
+            foreach (var item in billingSystem.GetByNumber(terminal1.TerminalNumber, terminal2.TerminalNumber))
+            {
+                Console.WriteLine(item.CallCoast+" "+item.ConversationDuration);
+            }
+            foreach (var item in billingSystem.GetSortByCallCoast(terminal1.TerminalNumber))
+            {
+                Console.WriteLine(item.CallCoast + " " + item.ConversationDuration);
+            }
+            foreach (var item in billingSystem.GetSortByCallTime(terminal1.TerminalNumber))
+            {
+                Console.WriteLine(item.CallCoast + " " + item.ConversationDuration);
+            }
+            Console.WriteLine(contract1.TariffPlan.Name);
+            billingSystem.ChangeTariffPlan(terminal1.TerminalNumber, new BaseTariffPlan("Base2", 3, 35, 100));
+            Console.WriteLine(contract1.TariffPlan.Name);
             Console.ReadLine();
 
         }

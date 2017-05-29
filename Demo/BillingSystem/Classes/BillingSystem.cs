@@ -14,13 +14,11 @@ namespace BillingSystem.Classes
         public BillingSystem()
         {
             BillSys = new Dictionary<int, IContract>();
-            
         }
 
         public void AddUser(IContract contract)
         {
             BillSys.Add(contract.GiveTerminalNumber(),contract);
-            
         }
 
         public void AddData(Tuple<int, int, DateTime, DateTime> data)
@@ -44,8 +42,53 @@ namespace BillingSystem.Classes
         {
             foreach (var item in BillSys)
             {
-                item.Value.CashAccountChange(MonthBill(item.Key,date.Month));
+                item.Value.CashAccountChange(-MonthBill(item.Key,date.Month));
             }
+        }
+
+        public void ChangeTariffPlan(int number,ITariffPlan tariff)
+        {
+            BillSys[number].TariffPlanChange(tariff);
+        }
+
+        public IEnumerable<ICallStatistic> GetSortByCallTime(int number)
+        {
+            return BillSys[number]
+                .StatisticCalls
+                .AsEnumerable()
+                .OrderBy(x => x.ConversationDuration);
+        }
+
+        public IEnumerable<ICallStatistic> GetSortByCallCoast(int number)
+        {
+            return BillSys[number]
+                .StatisticCalls
+                .AsEnumerable()
+                .OrderBy(x => x.CallCoast);
+        }
+
+        public IEnumerable<ICallStatistic> GetDateCall(int year, int month, int day, int number)
+        {
+            return BillSys[number]
+                .StatisticCalls
+                .AsEnumerable()
+                .Select(x => x)
+                .Where(x => x.CallStart.Year == year
+                            && x.CallStart.Month == month
+                            && x.CallStart.Day == day);
+        }
+
+        public IEnumerable<ICallStatistic> GetByNumber(int number,int targetNumber)
+        {
+            return BillSys[number]
+                .StatisticCalls
+                .Select(x => x)
+                .Where(x => x.TargetNumber == targetNumber);
+        }
+
+        public void CashAccountChange(int number, double summ)
+        {
+            BillSys[number].CashAccountChange(summ);
         }
     }
 }

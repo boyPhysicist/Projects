@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Task4.DAL.Repo
+namespace Task4.DAL.Repo.Interfaces
 {
     public interface IGenericDataRepository<T> where T:class
     {

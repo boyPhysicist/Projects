@@ -1,10 +1,9 @@
-﻿using Task4.DM;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
+using Task4.DAL.Repo.Interfaces;
 
 namespace Task4.DAL.Repo
 {
@@ -14,9 +13,9 @@ namespace Task4.DAL.Repo
         {
             using (var context = new SalesDBEntities())
             {
-                foreach (T item in items)
+                foreach (var item in items)
                 {
-                    context.Entry(item).State = System.Data.Entity.EntityState.Added;
+                    context.Entry(item).State = EntityState.Added;
                 }
                 context.SaveChanges();
             }
@@ -75,7 +74,7 @@ namespace Task4.DAL.Repo
             {
                 foreach (T item in items)
                 {
-                    context.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    context.Entry(item).State = EntityState.Deleted;
                 }
                 context.SaveChanges();
             }
@@ -87,7 +86,7 @@ namespace Task4.DAL.Repo
             {
                 foreach (T item in items)
                 {
-                    context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry(item).State = EntityState.Modified;
                 }
                 context.SaveChanges();
             }

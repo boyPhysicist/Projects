@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sales.DAL.Repositories
+namespace Sales.BL
 {
-    public class ClientRepository
+    public class Class1
     {
     }
 }

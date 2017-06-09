@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sales.DAL.Repositories
 {
-    class ManagerRepository
+    public class ManagerRepository:GeneralRepository<ManagerDTO,Manager,SaleInfoEntities>
     {
+
     }
 }

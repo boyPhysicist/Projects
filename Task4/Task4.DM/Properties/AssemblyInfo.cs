@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Sales.DAL")]
+[assembly: AssemblyTitle("Task4.DM")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sales.DAL")]
+[assembly: AssemblyProduct("Task4.DM")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("2d90e3c5-48f8-4632-8d56-f0b43e7279be")]
+[assembly: Guid("8862b111-c428-4de6-9d9a-b14a3517ecea")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

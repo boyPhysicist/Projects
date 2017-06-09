@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\Philip.SHOP\Source\Repos\epam\Task4\Model\SalesModel.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Philip.SHOP\Source\Repos\epam\Task4\Task4.DAL\Model.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

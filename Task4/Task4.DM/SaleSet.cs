@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace Task4.DM
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Sale
+    public partial class SaleSet
     {
         public int Id { get; set; }
         public string Data { get; set; }
+        public int Manager_Id { get; set; }
+        public int Product_Id { get; set; }
+        public int Client_Id { get; set; }
     
-        public virtual Manager Manager { get; set; }
-        public virtual Product Product { get; set; }
-        public virtual Client Client { get; set; }
+        public virtual ClientSet ClientSet { get; set; }
+        public virtual ManagerSet ManagerSet { get; set; }
+        public virtual ProductSet ProductSet { get; set; }
     }
 }

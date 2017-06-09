@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace Task4.DAL
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Task4.DM;
     
-    public partial class SalesModelContainer : DbContext
+    public partial class SalesDBEntities : DbContext
     {
-        public SalesModelContainer()
-            : base("name=SalesModelContainer")
+        public SalesDBEntities()
+            : base("name=SalesDBEntities")
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,9 +28,9 @@ namespace Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Manager> ManagerSet { get; set; }
-        public virtual DbSet<Product> ProductSet { get; set; }
-        public virtual DbSet<Client> ClientSet { get; set; }
-        public virtual DbSet<Sale> SaleSet { get; set; }
+        public virtual DbSet<ClientSet> ClientSets { get; set; }
+        public virtual DbSet<ManagerSet> ManagerSets { get; set; }
+        public virtual DbSet<ProductSet> ProductSets { get; set; }
+        public virtual DbSet<SaleSet> SaleSets { get; set; }
     }
 }

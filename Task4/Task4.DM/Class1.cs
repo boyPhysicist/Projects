@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sales.DAL.Repositories
+namespace Task4.DM
 {
-    public class ClientRepository
+    public class Class1
     {
     }
 }

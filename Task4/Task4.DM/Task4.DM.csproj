@@ -43,6 +43,8 @@
     <Compile Include="ClientSet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EntityState.cs" />
+    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="ManagerSet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

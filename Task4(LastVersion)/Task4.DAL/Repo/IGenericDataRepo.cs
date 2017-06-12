@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
-using Task4.DM.Entities;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Task4.DAL.Repo.Interfaces
+namespace Task4.DAL.Repo
 {
-    public interface IGenericDataRepository<T, K> : IDisposable
+    public interface IGenericDataRepo<T, K> : IDisposable
     {
         void Add(T obj);
         void Remove(T obj, Expression<Func<K, bool>> predicate);
@@ -16,4 +18,5 @@ namespace Task4.DAL.Repo.Interfaces
         IEnumerable<T> Items { get; }
 
     }
+    
 }

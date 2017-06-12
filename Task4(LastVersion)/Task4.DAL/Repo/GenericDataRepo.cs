@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
-using Task4.DAL.Repo.Interfaces;
 using Task4.DAL.ContextFactory;
-using EntityState = System.Data.Entity.EntityState;
 
 namespace Task4.DAL.Repo
 {
-    public abstract class GenericDataRepository<T, K, Context> : IGenericDataRepository<T, K> 
-        where T : class 
-        where K : class 
-        where Context : DbContext
+    public abstract class GenericDataRepo<T, TK, TContext> : IGenericDataRepo<T, TK>
+        where T : class
+        where TK : class
+        where TContext : DbContext
     {
 
-        protected Context _context;
-        protected GenericDataRepository(IContextFactory<Context> factory)
+        protected TContext _context;
+        protected GenericDataRepo(IContextFactory<TContext> factory)
         {
             _context = factory.ContObj;
         }
@@ -28,7 +27,7 @@ namespace Task4.DAL.Repo
             get
             {
                 var b = new List<T>();
-                foreach (var a in _context.Set<K>().Select(x => x))
+                foreach (var a in _context.Set<TK>().Select(x => x))
                 {
                     b.Add(ToObject(a));
                 }
@@ -37,23 +36,23 @@ namespace Task4.DAL.Repo
         }
         public void Add(T obj)
         {
-            _context.Set<K>().Add(ToEntity(obj));
+            _context.Set<TK>().Add(ToEntity(obj));
         }
 
         public abstract void Update(T obj);
-        
 
-        public K GetEntity(T source, Expression<Func<K, bool>> predicate)
+
+        public TK GetEntity(T source, Expression<Func<TK, bool>> predicate)
         {
-            return _context.Set<K>().FirstOrDefault(predicate);
+            return _context.Set<TK>().FirstOrDefault(predicate);
         }
 
-        public void Remove(T obj, Expression<Func<K, bool>> predicate)
+        public void Remove(T obj, Expression<Func<TK, bool>> predicate)
         {
-            var entity = _context.Set<K>().FirstOrDefault(predicate);
+            var entity = _context.Set<TK>().FirstOrDefault(predicate);
             if (entity != null)
             {
-                _context.Set<K>().Remove(entity);
+                _context.Set<TK>().Remove(entity);
             }
             else
             {
@@ -66,20 +65,20 @@ namespace Task4.DAL.Repo
             _context.SaveChanges();
         }
 
-        public K ToEntity(T source)
+        public TK ToEntity(T source)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<T, K>());
-            var entity = Mapper.Map<T, K>(source);
+            Mapper.Initialize(cfg => cfg.CreateMap<T, TK>());
+            var entity = Mapper.Map<T, TK>(source);
             return entity;
         }
-        public T ToObject(K source)
+        public T ToObject(TK source)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<K, T>());
-            var Object = Mapper.Map<K, T>(source);
+            Mapper.Initialize(cfg => cfg.CreateMap<TK, T>());
+            var Object = Mapper.Map<TK, T>(source);
             return Object;
         }
 
-        
+
 
         public void Dispose()
         {
@@ -89,7 +88,7 @@ namespace Task4.DAL.Repo
                 _context = null;
             }
         }
-        ~GenericDataRepository()
+        ~GenericDataRepo()
         {
             if (_context != null)
             {

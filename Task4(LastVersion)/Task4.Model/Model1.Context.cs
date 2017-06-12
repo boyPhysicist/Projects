@@ -7,17 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Task4.DAL
+namespace Task4.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using Task4.DM;
     
-    public partial class SalesDBEntities : DbContext
+    public partial class SalesEntities : DbContext
     {
-        public SalesDBEntities()
-            : base("name=SalesDBEntities")
+        public SalesEntities()
+            : base("name=SalesEntities")
         {
         }
     
@@ -26,9 +25,9 @@ namespace Task4.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ClientSet> ClientSets { get; set; }
-        public virtual DbSet<ManagerSet> ManagerSets { get; set; }
-        public virtual DbSet<ProductSet> ProductSets { get; set; }
-        public virtual DbSet<SaleSet> SaleSets { get; set; }
+        public virtual DbSet<ClientSet> ClientSet { get; set; }
+        public virtual DbSet<ManagerSet> ManagerSet { get; set; }
+        public virtual DbSet<ProductSet> ProductSet { get; set; }
+        public virtual DbSet<SaleSet> SaleSet { get; set; }
     }
 }

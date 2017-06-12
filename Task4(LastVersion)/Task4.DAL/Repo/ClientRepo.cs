@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task4.DAL.BufEnt;
+using Task4.DAL.BuffModels;
 using Task4.DAL.ContextFactory;
-using Task4.DAL.Repo.Interfaces;
-using Task4.DM;
+using Task4.Model;
 
 namespace Task4.DAL.Repo
 {
-    public class ClientRepository:GenericDataRepository<BufClient, ClientSet, SalesDBEntities>
+    public class ClientRepo:GenericDataRepo<BuffClient, ClientSet, SalesEntities>
     {
-        public ClientRepository(IContextFactory<SalesDBEntities> factory) : base(factory)
-        {
-        }
+     
 
-        public override void Update(BufClient obj)
+        public override void Update(BuffClient obj)
         {
             var entity = _context.Set<ClientSet>().FirstOrDefault(x => x.Id == obj.Id);
             if (entity != null)
             {
-                entity.ClientName = obj.ClientName;
+                entity.Name = obj.Name;
             }
             else
             {
-                //Add try/catch
                 throw new ArgumentException("Incorrect argument!!!");
             }
         }
+
+        public ClientRepo(IContextFactory<SalesEntities> factory) : base(factory)
+        {
+        }
     }
+   
 }

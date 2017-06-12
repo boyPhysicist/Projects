@@ -44,7 +44,7 @@ namespace Task4_LastVersion_
                     client = _clientRepo.GetEntity(newClient, x => x.Name == newClient.Name);
                 }
 
-                var newProduct = new BuffProduct {Name = data.ProductName, Cost = data.ProductCost };
+                var newProduct = new BuffProduct {Name = data.ProductName, Coast = data.ProductCost };
                 var product = _productRepo.GetEntity(newProduct, x => x.Name == newProduct.Name);
 
                 if (product == null)

@@ -21,6 +21,7 @@ namespace Task4.DAL.Repo
             if (entity != null)
             {
                 entity.Name = obj.Name;
+                entity.Coast = obj.Coast;
             }
             else
             {

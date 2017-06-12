@@ -10,7 +10,7 @@ namespace Task4.DAL.BuffModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Cost { get; set; }
+        public string Coast { get; set; }
         public ICollection<BuffSale> SaleSet{ get; set; }
     }
 }

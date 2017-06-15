@@ -56,7 +56,22 @@ namespace Task5.BL.Services
             DataBase.Save();
         }
 
+        public ClientDTO GetClient(int? id)
+        {
+            if (id == null)
+                throw new ValidationException("Не установлено id клиента", "");
+            var client = DataBase.Clients.Get(id.Value);
+            if (client == null)
+                throw new ValidationException("Клиент не найден", "");
+            Mapper.Initialize(cfg => cfg.CreateMap<Client, ClientDTO>());
+            return Mapper.Map<Client, ClientDTO>(client);
+        }
 
+        public IEnumerable<ClientDTO> GetClients()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Client, ClientDTO>());
+            return Mapper.Map<IEnumerable<Client>, List<ClientDTO>>(DataBase.Clients.GetAll());
+        }
 
         public void Dispose()
         {

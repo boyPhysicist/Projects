@@ -16,8 +16,6 @@ namespace Task5.DAL.Context
             db.Managers.Add(new Manager {Name = "Manager1", Email = "email1@email.com"});
             db.Managers.Add(new Manager { Name = "Manager2", Email = "email2@email.com" });
             
-
-
             db.Clients.Add(new Client { Name = "Client1", Email = "clientEmail1@email.com" });
             db.Clients.Add(new Client { Name = "Client2", Email = "clientEmail2@email.com" });
             db.Clients.Add(new Client { Name = "Client3", Email = "clientEmail2@email.com" });

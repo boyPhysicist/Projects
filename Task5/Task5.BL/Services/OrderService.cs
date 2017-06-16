@@ -20,6 +20,17 @@ namespace Task5.BL.Services
         {
             DataBase = unitOfWorkow;
         }
+        public ManagerDTO GetManager(int? id)
+        {
+            if (id == null)
+                 throw new ValidationException("Не установлено id менеджера", "");
+            var manager = DataBase.Managers.Get(id.Value);
+            if(manager==null)
+                throw new ValidationException("Не найден менеджер", "");
+            Mapper.Initialize(cfg => cfg.CreateMap<Manager, ManagerDTO>());
+
+            return Mapper.Map<Manager, ManagerDTO>(manager);
+        }
 
         public ProductDTO GetProduct(int? id)
         {
@@ -63,9 +74,24 @@ namespace Task5.BL.Services
             var client = DataBase.Clients.Get(id.Value);
             if(client==null)
                 throw new ValidationException("Клиент не найден", "");
-            var order = DataBase.Orders.Find(x => x.ClientId == client.Id);
+            var orders = DataBase.Orders.Find(x => x.ClientId == client.Id);
             Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
-            return null;
+
+            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
+        }
+        public IEnumerable<OrderDTO> GetOrdersByManager(int? id)
+        {
+            if (id == null)
+                throw new ValidationException("Не установлено id менеджера", "");
+            var client = DataBase.Clients.Get(id.Value);
+            if (client == null)
+                throw new ValidationException("Менеджер не найден", "");
+            var orders = DataBase.Orders.Find(x => x.ClientId == client.Id);
+            if(orders==null)
+                throw new ValidationException("Заказы не найдены", "");
+            Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
+
+            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
         }
 
         public ClientDTO GetClient(int? id)
@@ -90,5 +116,11 @@ namespace Task5.BL.Services
             DataBase.Dispose();
         }
 
+        
+
+        public IEnumerable<ManagerDTO> GetManagers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

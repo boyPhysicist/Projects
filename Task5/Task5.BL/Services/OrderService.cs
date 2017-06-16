@@ -56,6 +56,18 @@ namespace Task5.BL.Services
             DataBase.Save();
         }
 
+        public IEnumerable<OrderDTO> GetOrdersByClient(int? id)
+        {
+            if (id == null)
+                throw new ValidationException("Не установлено id клиента", "");
+            var client = DataBase.Clients.Get(id.Value);
+            if(client==null)
+                throw new ValidationException("Клиент не найден", "");
+            var order = DataBase.Orders.Find(x => x.ClientId == client.Id);
+            Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
+            return null;
+        }
+
         public ClientDTO GetClient(int? id)
         {
             if (id == null)

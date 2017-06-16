@@ -19,9 +19,9 @@ namespace Task5.Controllers
         }
         public ActionResult Index()
         {
-            IEnumerable<ProductDTO> phoneDtos = _orderService.GetProducts();
+            IEnumerable<ProductDTO> productDtos = _orderService.GetProducts();
             Mapper.Initialize(cfg => cfg.CreateMap<ProductDTO, ProductView>());
-            var products = Mapper.Map<IEnumerable<ProductDTO>, List<ProductView>>(phoneDtos);
+            var products = Mapper.Map<IEnumerable<ProductDTO>, List<ProductView>>(productDtos);
             ViewBag.Products = products;
             return View();
             

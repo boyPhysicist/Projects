@@ -10,6 +10,8 @@ namespace Task5.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Modules;
+    using Task5.BL;
 
     public static class NinjectWebCommon 
     {
@@ -39,7 +41,8 @@ namespace Task5.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var kernel = new StandardKernel();
+            var modules = new INinjectModule[] { new ServiceModule("DefaultConnection") };
+            var kernel = new StandardKernel(modules);
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
@@ -61,6 +64,7 @@ namespace Task5.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            System.Web.Mvc.DependencyResolver.SetResolver(new Util.NinjectDependencyResolver(kernel));
         }        
     }
 }

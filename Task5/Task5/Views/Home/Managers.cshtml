@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Task5.Models.ManagerView>
+
+<div id="managers">
+    <table class="table table-striped">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+    </table>
+
+</div>

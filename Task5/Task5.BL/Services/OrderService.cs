@@ -120,7 +120,8 @@ namespace Task5.BL.Services
 
         public IEnumerable<ManagerDTO> GetManagers()
         {
-            throw new NotImplementedException();
+            Mapper.Initialize(cfg=>cfg.CreateMap<Manager,ManagerDTO>());
+            return Mapper.Map<IEnumerable<Manager>, List<ManagerDTO>>(DataBase.Managers.GetAll());
         }
     }
 }

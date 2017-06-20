@@ -27,11 +27,15 @@
 
         <input type="submit" value="Показать клиентов" />
     }
+    @using (Ajax.BeginForm("MakeOrder", new AjaxOptions {UpdateTargetId = "makeOrder"}))
+    {
+        <input type="submit" value ="MakeOrder" />
+    }
 
 
-    
-    
+
     <div id="results"></div>
+    <div id="makeOrder"></div>
     
 
    

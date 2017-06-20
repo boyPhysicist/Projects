@@ -51,6 +51,18 @@ namespace Task5.Controllers
 
         }
 
+        public ActionResult MakeOrder()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult MakeOrder(OrderView order)
+        {
+
+            return Index();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -282,6 +282,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Managers.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
+    <Content Include="Views\Home\MakeOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

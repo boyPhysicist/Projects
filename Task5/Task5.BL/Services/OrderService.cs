@@ -28,12 +28,6 @@ namespace Task5.BL.Services
             Mapper.Initialize(cfg => cfg.CreateMap<Manager, ManagerDTO>());
             return Mapper.Map<IEnumerable<Manager>, List<ManagerDTO>>(DataBase.Managers.GetAll());
         }
-        public IEnumerable<OrderDTO> GetOrdersByClient(int? id)
-        {
-            var orders = DataBase.Orders.Find(x => x.ClientId == GetClient(id).Id);
-            Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
-            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
-        }
         public IEnumerable<OrderDTO> GetOrdersByManager(int? id)
         {
             var orders = DataBase.Orders.Find(x => x.ManagerId == GetManager(id).Id);
@@ -41,6 +35,17 @@ namespace Task5.BL.Services
                 throw new ValidationException("Заказы не найдены", "");
             Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
             return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
+        }
+        public IEnumerable<OrderDTO> GetOrdersByClient(int? id)
+        {
+            var orders = DataBase.Orders.Find(x => x.ClientId == GetClient(id).Id);
+            Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
+            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
+        }
+        public IEnumerable<OrderDTO> GetOrders()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
+            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(DataBase.Orders.GetAll());
         }
         public IEnumerable<ProductDTO> GetProducts()
         {
@@ -135,11 +140,19 @@ namespace Task5.BL.Services
             DataBase.Products.Create(Mapper.Map<ProductDTO, Product>(product));
             DataBase.Save();
         }
+        public void CreateClient(ClientDTO client)
+        {
+            if (client == null)
+                throw new ValidationException("Пустой объект", "Client creator");
+            Mapper.Initialize(cfg => cfg.CreateMap<ClientDTO, Client>());
+            DataBase.Clients.Create(Mapper.Map<ClientDTO, Client>(client));
+            DataBase.Save();
+        }
         public void MakeOrder(OrderDTO orderDto)
         {
             Product product = DataBase.Products.Get(orderDto.ProductId);
 
-            if(product==null)
+            if (product == null)
                 throw new ValidationException("Товар не найден!", "MakeOrder");
             Order order = new Order
             {
@@ -152,31 +165,10 @@ namespace Task5.BL.Services
             DataBase.Orders.Create(order);
             DataBase.Save();
         }
-        public void CreateClient(ClientDTO client)
-        {
-            if (client == null)
-                throw new ValidationException("Пустой объект", "Client creator");
-            Mapper.Initialize(cfg => cfg.CreateMap<ClientDTO, Client>());
-            DataBase.Clients.Create(Mapper.Map<ClientDTO, Client>(client));
-            DataBase.Save();
-        }
         public void Dispose()
         {
             DataBase.Dispose();
         }
- 
-        
 
-        
-
-        
-
-        public IEnumerable<OrderDTO> GetOrders()
-        {
-            Mapper.Initialize(cfg=>cfg.CreateMap<Order,OrderDTO>());
-            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(DataBase.Orders.GetAll());
-        }
-
-        
     }
 }

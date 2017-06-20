@@ -51,16 +51,20 @@ namespace Task5.Controllers
 
         }
 
+       
         public ActionResult MakeOrder()
         {
+           
             return PartialView();
         }
 
-        [HttpPost]
-        public ActionResult MakeOrder(OrderView order)
+       
+        public string MakeOrder(OrderView order)
         {
-
-            return Index();
+            order.Date = DateTime.Now;
+            Mapper.Initialize(cfg=>cfg.CreateMap<OrderView,OrderDTO>());
+            _orderService.MakeOrder(Mapper.Map<OrderView,OrderDTO>(order));
+            return "Заказ оформлен";
         }
 
         public ActionResult About()

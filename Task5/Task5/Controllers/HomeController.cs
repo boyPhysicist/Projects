@@ -27,6 +27,30 @@ namespace Task5.Controllers
             
         }
 
+       
+        public ActionResult Managers()
+        {
+            IEnumerable<ManagerDTO> managerDtos = _orderService.GetManagers();
+            Mapper.Initialize(cfg => cfg.CreateMap<ManagerDTO, ManagerView>());
+            var managers = Mapper.Map<IEnumerable<ManagerDTO>, List<ManagerView>>(managerDtos);
+
+
+            return PartialView(managers);
+
+        }
+
+
+        public ActionResult Clients()
+        {
+            IEnumerable<ClientDTO> managerDtos = _orderService.GetClients();
+            Mapper.Initialize(cfg => cfg.CreateMap<ClientDTO, ClientView>());
+            var clients = Mapper.Map<IEnumerable<ClientDTO>, List<ClientView>>(managerDtos);
+
+
+            return PartialView(clients);
+
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

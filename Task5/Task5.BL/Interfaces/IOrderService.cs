@@ -10,13 +10,22 @@ namespace Task5.BL.Interfaces
     public interface IOrderService
     {
         
-        ProductDTO GetProduct(int? id);
-        ClientDTO GetClient(int? id);
+        ProductDTO GetProduct(int? productId);
+        ProductDTO GetProductByOrder(int? orderId);
+        ClientDTO GetClient(int? clientId);
+        ClientDTO GetClientByOrder(int? orderId);
         ManagerDTO GetManager(int? id);
+        ManagerDTO GetManagerByOrder(int? orderId);
+        OrderDTO GetOrder(int? orderId);
+
         IEnumerable<ManagerDTO> GetManagers();
         IEnumerable<ClientDTO> GetClients();
+        IEnumerable<ClientDTO> GetClientsByProduct(int? productId);
         IEnumerable<ProductDTO> GetProducts();
-        IEnumerable<OrderDTO> GetOrdersByClient(int? id);
+        IEnumerable<OrderDTO> GetOrders();
+        IEnumerable<OrderDTO> GetOrdersByManager(int? managerId);
+        IEnumerable<OrderDTO> GetOrdersByClient(int? clientId);
+
         void MakeOrder(OrderDTO orderDto);
         void CreateManager(ManagerDTO manager);
         void CreateProduct(ProductDTO product);

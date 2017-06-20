@@ -1,3 +1,5 @@
+using Task5.BL.Services;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Task5.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Task5.App_Start.NinjectWebCommon), "Stop")]
 

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using Task5.DAL.Interfaces;
 using Task5.DAL.Repositories;
 
-namespace Task5.BL
+namespace Task5.BL.Services
 {
     public class ServiceModule : NinjectModule
     {

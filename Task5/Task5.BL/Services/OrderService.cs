@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Task5.BL.DTO;
@@ -20,6 +21,14 @@ namespace Task5.BL.Services
         {
             DataBase = unitOfWorkow;
         }
+
+
+        public IEnumerable<ManagerDTO> GetManagers()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Manager, ManagerDTO>());
+            return Mapper.Map<IEnumerable<Manager>, List<ManagerDTO>>(DataBase.Managers.GetAll());
+        }
+
         public ManagerDTO GetManager(int? id)
         {
             if (id == null)
@@ -30,6 +39,23 @@ namespace Task5.BL.Services
             Mapper.Initialize(cfg => cfg.CreateMap<Manager, ManagerDTO>());
 
             return Mapper.Map<Manager, ManagerDTO>(manager);
+        }
+
+        public void CreateManager(ManagerDTO manager)
+        {
+            if (manager==null)
+                throw new ValidationException("Пустой объект","");
+            Mapper.Initialize(cfg=>cfg.CreateMap<ManagerDTO,Manager>());
+            DataBase.Managers.Create(Mapper.Map<ManagerDTO,Manager>(manager));
+            DataBase.Save();
+        }
+        public void CreateProduct(ProductDTO product)
+        {
+            if (product == null)
+                throw new ValidationException("Пустой объект", "");
+            Mapper.Initialize(cfg => cfg.CreateMap<ProductDTO, Product>());
+            DataBase.Products.Create(Mapper.Map<ProductDTO, Product>(product));
+            DataBase.Save();
         }
 
         public ProductDTO GetProduct(int? id)
@@ -93,6 +119,14 @@ namespace Task5.BL.Services
 
             return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
         }
+        public void CreateClient(ClientDTO client)
+        {
+            if (client == null)
+                throw new ValidationException("Пустой объект", "Client creator");
+            Mapper.Initialize(cfg => cfg.CreateMap<ClientDTO, Client>());
+            DataBase.Clients.Create(Mapper.Map<ClientDTO, Client>(client));
+            DataBase.Save();
+        }
 
         public ClientDTO GetClient(int? id)
         {
@@ -118,9 +152,8 @@ namespace Task5.BL.Services
 
         
 
-        public IEnumerable<ManagerDTO> GetManagers()
-        {
-            throw new NotImplementedException();
-        }
+        
+
+        
     }
 }

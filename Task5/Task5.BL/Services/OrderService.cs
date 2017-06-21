@@ -44,8 +44,9 @@ namespace Task5.BL.Services
         }
         public IEnumerable<OrderDTO> GetOrders()
         {
+            var orders = DataBase.Orders.GetAll();
             Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
-            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(DataBase.Orders.GetAll());
+            return Mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orders);
         }
         public IEnumerable<ProductDTO> GetProducts()
         {
@@ -108,6 +109,14 @@ namespace Task5.BL.Services
             Mapper.Initialize(cfg => cfg.CreateMap<Order, OrderDTO>());
 
             return Mapper.Map<Order, OrderDTO>(order);
+        }
+
+        public void DeleteOrder(int orderId)
+        {
+            var order = DataBase.Orders.Get(orderId);
+            if(order==null)
+                throw new ValidationException("Заказ не найден","");
+            DataBase.Orders.Delete(order.Id);
         }
         public ClientDTO GetClientByOrder(int? orderId)
         {

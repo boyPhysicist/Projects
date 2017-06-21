@@ -30,6 +30,7 @@ namespace Task5.BL.Interfaces
         void CreateManager(ManagerDTO manager);
         void CreateProduct(ProductDTO product);
         void CreateClient(ClientDTO client);
+        void DeleteOrder(int orderId);
         void Dispose();
     }
 }

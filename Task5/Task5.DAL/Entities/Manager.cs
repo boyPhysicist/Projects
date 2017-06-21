@@ -12,5 +12,10 @@ namespace Task5.DAL.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public ICollection<Order> Orders { get; set; }
+
+        public Manager()
+        {
+            Orders = new List<Order>();
+        }
     }
 }

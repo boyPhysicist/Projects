@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    
+
     <table class="table table-striped">
         @foreach (var b in ViewBag.Products)
         {
@@ -12,34 +12,30 @@
                 <td>@b.Id</td>
                 <td>@b.Name</td>
                 <td>@b.Price</td>
+                @*<td>@Html.ActionLink("Заказ", "MakeOrder", new { id = b.Id })</td>*@
             </tr>
         }
     </table>
-    
-    
+
+
     @using (Ajax.BeginForm("Managers", new AjaxOptions { UpdateTargetId = "results" }))
     {
-    
         <input type="submit" value="Показать менеджеров" />
     }
     @using (Ajax.BeginForm("Clients", new AjaxOptions { UpdateTargetId = "results" }))
     {
-
         <input type="submit" value="Показать клиентов" />
     }
-    @using (Ajax.BeginForm("ViewMakeOrder", new AjaxOptions {UpdateTargetId = "makeOrder"}))
+    @using (Ajax.BeginForm("Orders", new AjaxOptions { UpdateTargetId = "results" }))
     {
-        <input type="submit" value ="ShowOrderForm" />
+        <input type="submit" value="Показать заказы" />
     }
 
-
-
     <div id="results"></div>
-    <div id="makeOrder"></div>
-    
-
-   
 </div>
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+
+
+
 

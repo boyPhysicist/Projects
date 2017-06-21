@@ -12,5 +12,10 @@ namespace Task5.DAL.Entities
         public string Name { get; set; }
         public decimal Price { get; set; }
         public ICollection<Order> Orders { get; set; }
+
+        public Product()
+        {
+            Orders = new List<Order>();
+        }
     }
 }

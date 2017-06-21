@@ -283,6 +283,8 @@
     <Content Include="Views\Home\Managers.cshtml" />
     <Content Include="Views\Home\Clients.cshtml" />
     <Content Include="Views\Home\MakeOrder.cshtml" />
+    <Content Include="Views\Home\Orders.cshtml" />
+    <Content Include="Views\Home\ErrorHandler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

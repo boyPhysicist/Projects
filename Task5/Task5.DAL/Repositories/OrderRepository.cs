@@ -29,6 +29,7 @@ namespace Task5.DAL.Repositories
             Order order = _db.Orders.Find(id);
             if (order != null)
                 _db.Orders.Remove(order);
+            _db.SaveChanges();
         }
 
         public IEnumerable<Order> Find(Func<Order, bool> predicate)
@@ -43,7 +44,7 @@ namespace Task5.DAL.Repositories
 
         public IEnumerable<Order> GetAll()
         {
-            return _db.Orders.Include(o => o.ProductId);
+            return _db.Orders;
         }
 
         public void Update(Order item)

@@ -280,24 +280,24 @@ namespace Task5.Controllers
             return View();
         }
 
-        //public JsonResult Chart()
-        //{
-        //    var list = GetData();
-        //    return Json(new { Orders = list }, JsonRequestBehavior.AllowGet);
-        //}
+        public JsonResult Chart()
+        {
+            var list = GetData();
+            return Json(new { Orders = list }, JsonRequestBehavior.AllowGet);
+        }
 
-        //public IEnumerable<Data> GetData()
-        //{
-        //    IEnumerable<OrderDTO> orderDtos = _orderService.GetOrders();
-        //    Mapper.Initialize(cfg => cfg.CreateMap<OrderDTO, OrderView>());
-        //    var result = Mapper.Map<IEnumerable<OrderDTO>, List<OrderView>>(orderDtos);
-        //    var data = result.GroupBy(x => x.ManagerName).Select(y => new Data
-        //    {
-        //        ManagerId = y.Key,
-        //        CountClients = y.Select(m => m.ClientName).Distinct().Count()
-        //    }).ToList();
-        //    return data;
-        //}
+        public IEnumerable<Data> GetData()
+        {
+            IEnumerable<OrderDTO> orderDtos = _orderService.GetOrders();
+            Mapper.Initialize(cfg => cfg.CreateMap<OrderDTO, OrderView>());
+            var result = Mapper.Map<IEnumerable<OrderDTO>, List<OrderView>>(orderDtos);
+            var data = result.GroupBy(x => x.ManagerName).Select(y => new Data
+            {
+                ManagerId = y.Key,
+                CountClients = y.Select(m => m.ClientName).Distinct().Count()
+            }).ToList();
+            return data;
+        }
 
         public ActionResult Contact()
         {

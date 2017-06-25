@@ -153,6 +153,7 @@ namespace Task5.BL.Services
             order.Product = product ?? throw new ValidationException("Товар не найден!", "");
             order.Client = client;
             order.Manager = manager;
+            order.Sum = order.Product.Price;
             DataBase.Orders.Create(order);
             DataBase.Save();
         }

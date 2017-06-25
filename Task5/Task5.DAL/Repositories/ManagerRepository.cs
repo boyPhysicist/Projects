@@ -10,45 +10,14 @@ using Task5.DAL.Interfaces;
 
 namespace Task5.DAL.Repositories
 {
-    public class ManagerRepository:IRepository<Manager>
+    public class ManagerRepository:GenRepo<Manager>
     {
-        private readonly OrderContext _db;
-
-        public ManagerRepository(OrderContext context)
+        
+        public ManagerRepository(OrderContext context):base(context)
         {
-            _db = context;
+            
         }
 
-        public void Create(Manager item)
-        {
-            _db.Managers.Add(item);
-        }
-
-        public void Delete(int id)
-        {
-            Manager item = _db.Managers.Find(id);
-            if (item != null)
-                _db.Managers.Remove(item);
-        }
-
-        public IEnumerable<Manager> Find(Func<Manager, bool> predicate)
-        {
-            return _db.Managers.Where(predicate).ToList();
-        }
-
-        public Manager Get(int id)
-        {
-            return _db.Managers.Find(id);
-        }
-
-        public IEnumerable<Manager> GetAll()
-        {
-            return _db.Managers;
-        }
-
-        public void Update(Manager item)
-        {
-            _db.Entry(item).State = EntityState.Modified;
-        }
+        
     }
 }

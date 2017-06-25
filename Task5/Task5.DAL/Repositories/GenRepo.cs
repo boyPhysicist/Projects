@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Task5.DAL.Repositories
 
         public void Delete(int id)
         {
-            T item = Db.Set<T>().Find(id);
+            T item = Get(id);
             if (item != null)
                 Db.Set<T>().Remove(item);
         }
@@ -36,17 +37,17 @@ namespace Task5.DAL.Repositories
 
         public T Get(int id)
         {
-            throw new NotImplementedException();
+            return Db.Set<T>().Find(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return Db.Set<T>();
         }
 
         public void Update(T item)
         {
-            throw new NotImplementedException();
+            Db.Entry(item).State = EntityState.Modified;
         }
     }
 }

@@ -1,14 +1,32 @@
 ﻿@model IEnumerable<Task5.Models.ManagerView>
 
-<div id="managers">
-    <table class="table table-striped">
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Email</td>
-            </tr>
-        }
-    </table>
+<p>
+    @Html.ActionLink("Create New", "CreateManager")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
 
-</div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateManager", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteManager", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

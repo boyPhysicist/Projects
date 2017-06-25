@@ -2,22 +2,13 @@
     ViewBag.Title = "Главная страница!!!";
 }
 
-
 <div class="row">
 
-    <table class="table table-striped">
-        @foreach (var b in ViewBag.Products)
-        {
-            <tr>
-                <td>@b.Id</td>
-                <td>@b.Name</td>
-                <td>@b.Price</td>
-                @*<td>@Html.ActionLink("Заказ", "MakeOrder", new { id = b.Id })</td>*@
-            </tr>
-        }
-    </table>
-
-
+    @using (Ajax.BeginForm("Products", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Показать товары" />
+    }
+    
     @using (Ajax.BeginForm("Managers", new AjaxOptions { UpdateTargetId = "results" }))
     {
         <input type="submit" value="Показать менеджеров" />

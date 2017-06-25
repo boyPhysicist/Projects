@@ -11,26 +11,38 @@ namespace Task5.BL.Interfaces
     {
         
         ProductDTO GetProduct(int? productId);
-        ProductDTO GetProductByOrder(int? orderId);
+        ProductDTO GetProductByOrder(int orderId);
         ClientDTO GetClient(int? clientId);
-        ClientDTO GetClientByOrder(int? orderId);
+        ClientDTO GetClientByOrder(int orderId);
         ManagerDTO GetManager(int? id);
-        ManagerDTO GetManagerByOrder(int? orderId);
+        ManagerDTO GetManagerByOrder(int orderId);
         OrderDTO GetOrder(int? orderId);
 
+        IEnumerable<ProductDTO> GetProducts();
+        IEnumerable<OrderDTO> GetOrders();
         IEnumerable<ManagerDTO> GetManagers();
         IEnumerable<ClientDTO> GetClients();
         IEnumerable<ClientDTO> GetClientsByProduct(int? productId);
-        IEnumerable<ProductDTO> GetProducts();
-        IEnumerable<OrderDTO> GetOrders();
         IEnumerable<OrderDTO> GetOrdersByManager(int? managerId);
         IEnumerable<OrderDTO> GetOrdersByClient(int? clientId);
+        IEnumerable<OrderDTO> GetOrdersByProduct(int? productId);
 
         void MakeOrder(OrderDTO orderDto);
         void CreateManager(ManagerDTO manager);
         void CreateProduct(ProductDTO product);
         void CreateClient(ClientDTO client);
         void DeleteOrder(int orderId);
+        void DeleteManager(int managerId);
+        void DeleteProduct(int productId);
+        void DeleteClient(int cliientId);
+        void UpdateManager(ManagerDTO manager);
+        void UpdateProduct(ProductDTO product);
+        void UpdateClient(ClientDTO client);
+        void UpdateOrder(OrderDTO order);
+
+
+
         void Dispose();
+
     }
 }

@@ -1,0 +1,58 @@
+﻿@model Task5.BL.ValidationException
+@Html.ActionLink("Вернуться на Главную", "Index")
+@if (Model != null) { 
+    <div>
+        <h4>ValidationException</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StackTrace)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StackTrace)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HelpLink)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HelpLink)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Source)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Source)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HResult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HResult)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Property)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Property)
+            </dd>
+
+        </dl>
+    </div>
+}

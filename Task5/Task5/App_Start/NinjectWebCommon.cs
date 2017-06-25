@@ -1,5 +1,3 @@
-using Task5.BL.Services;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Task5.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Task5.App_Start.NinjectWebCommon), "Stop")]
 
@@ -11,9 +9,9 @@ namespace Task5.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
-    using Ninject.Web.Common;
     using Ninject.Modules;
-    using Task5.BL;
+    using Ninject.Web.Common;
+    using Task5.BL.Services;
 
     public static class NinjectWebCommon 
     {

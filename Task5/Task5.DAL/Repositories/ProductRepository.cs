@@ -10,45 +10,13 @@ using Task5.DAL.Interfaces;
 
 namespace Task5.DAL.Repositories
 {
-    public class ProductRepository : IRepository<Product>
+    public class ProductRepository : GenRepo<Product>
     {
         private readonly OrderContext _db;
 
-        public ProductRepository(OrderContext context)
+        public ProductRepository(OrderContext context):base(context)
         {
             _db = context;
-        }
-
-        public void Create(Product item)
-        {
-            _db.Products.Add(item);
-        }
-
-        public void Delete(int id)
-        {
-            Product item = _db.Products.Find(id);
-            if (item != null)
-                _db.Products.Remove(item);
-        }
-
-        public IEnumerable<Product> Find(Func<Product, bool> predicate)
-        {
-            return _db.Products.Where(predicate).ToList();
-        }
-
-        public Product Get(int id)
-        {
-           return _db.Products.Find(id);
-        }
-
-        public IEnumerable<Product> GetAll()
-        {
-            return _db.Products;
-        }
-
-        public void Update(Product item)
-        {
-            _db.Entry(item).State = EntityState.Modified;
         }
     }
 }

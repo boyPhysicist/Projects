@@ -10,45 +10,14 @@ using Task5.DAL.Interfaces;
 
 namespace Task5.DAL.Repositories
 {
-    public class ClientRepository : IRepository<Client>
+    public class ClientRepository : GenRepo<Client>
     {
-        private readonly OrderContext _db;
-
-        public ClientRepository(OrderContext context)
+        
+        public ClientRepository(OrderContext context):base (context)
         {
-            _db = context;
+            
         }
 
-        public void Create(Client item)
-        {
-            _db.Clients.Add(item);
-        }
-
-        public void Delete(int id)
-        {
-            Client item = _db.Clients.Find(id);
-            if (item != null)
-                _db.Clients.Remove(item);
-        }
-
-        public IEnumerable<Client> Find(Func<Client, bool> predicate)
-        {
-            return _db.Clients.Where(predicate).ToList();
-        }
-
-        public Client Get(int id)
-        {
-            return _db.Clients.Find(id);
-        }
-
-        public IEnumerable<Client> GetAll()
-        {
-            return _db.Clients;
-        }
-
-        public void Update(Client item)
-        {
-            _db.Entry(item).State = EntityState.Modified;
-        }
+        
     }
 }

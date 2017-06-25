@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Task5.Models.OrderView>
 
 <p>
-    @Html.ActionLink("Create New", "MakeOrder"@*, new {id=0}*@)
+    @Html.ActionLink("Create New", "CreateOrder")
 </p>
 <table class="table">
     <tr>
@@ -12,41 +12,39 @@
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductId)
+            @Html.DisplayNameFor(model => model.ManagerName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientId)
+            @Html.DisplayNameFor(model => model.ClientName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ManagerId)
+            @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerId)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "DeleteOrder", new { id=item.Id })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateOrder", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteOrder", new { id=item.Id })
+        </td>
+    </tr>
+}
 
 </table>
-
-
-

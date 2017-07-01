@@ -18,10 +18,12 @@ namespace Task5.Controllers
         {
             _orderService = serv;
         }
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize]
         public ActionResult Products()
         {
             var productDtos = _orderService.GetProducts();
@@ -29,6 +31,7 @@ namespace Task5.Controllers
             var products = Mapper.Map<IEnumerable<ProductDTO>, List<ProductView>>(productDtos);
             return View(products);
         }
+        [Authorize]
         public ActionResult Managers()
         {
             var managersDtos = _orderService.GetManagers();
@@ -36,6 +39,7 @@ namespace Task5.Controllers
             var managers = Mapper.Map<IEnumerable<ManagerDTO>, List<ManagerView>>(managersDtos);
             return View(managers);
         }
+        [Authorize]
         public ActionResult Clients()
         {
             var clientDtos = _orderService.GetClients();
@@ -43,6 +47,7 @@ namespace Task5.Controllers
             var clients = Mapper.Map<IEnumerable<ClientDTO>, List<ClientView>>(clientDtos);
             return View(clients);
         }
+        [Authorize]
         public ActionResult Orders()
         {
             var orders = _orderService.GetOrders();

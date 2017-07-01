@@ -310,5 +310,48 @@ namespace Task5.Controllers
 
             return View();
         }
+
+        public ActionResult Sort(string manager, string product,string client, string date)
+        {
+            var orders = _orderService.GetOrders();
+            var managers = orders.Select(x => x.ManagerName).Distinct().ToList();
+            managers.Insert(0, "All");
+            var products = orders.Select(x => x.ProductName).Distinct().ToList();
+            products.Insert(0, "All");
+            var clients = orders.Select(x => x.ClientName).Distinct().ToList();
+            clients.Insert(0, "All");
+            var dates = orders.Select(x => x.Date.ToString()).Distinct().ToList();
+            dates.Insert(0, "All");
+
+            if (!string.IsNullOrEmpty(manager) && !manager.Equals("All"))
+            {
+                orders = orders.Where(x => x.ManagerName == manager);
+            }
+
+            if (!string.IsNullOrEmpty(product) && !product.Equals("All"))
+            {
+                orders = orders.Where(x => x.ProductName == product);
+            }
+
+            if (!string.IsNullOrEmpty(client) && !client.Equals("All"))
+            {
+                orders = orders.Where(x => x.ClientName == client);
+            }
+
+            if (!string.IsNullOrEmpty(date) && !date.Equals("All"))
+            {
+                orders = orders.Where(x => x.Date.ToString() == date);
+            }
+            var info = new InfoView
+            {
+                Orders = orders,
+                Managers = new SelectList(managers),
+                Products = new SelectList(products),
+                Clients = new SelectList(clients),
+                Dates = new SelectList(dates)
+            };
+
+            return View(info);
+        }
     }
 }

@@ -213,6 +213,7 @@
     <Compile Include="Models\ClientView.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoView.cs" />
     <Compile Include="Models\ManagerView.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderView.cs" />
@@ -317,6 +318,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Sort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -23,10 +24,12 @@ namespace Task5.Controllers
             return Redirect("/Account/Register");
         }
 
-        //public ActionResult Delete(string id)
-        //{
-        //    UserManager.DeleteAsync(UserManager.Users.Select(x=>x.Id==id));
-        //}
+        public async Task<ActionResult> Delete(string id)
+        {
+            var user = UserManager.Users.First(x => x.Id == id);
+            await UserManager.DeleteAsync(user);
+            return Redirect("/Admin/Index");
+        }
 
     }
 }

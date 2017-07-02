@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace Task5.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         [Authorize(Roles = "admin")]

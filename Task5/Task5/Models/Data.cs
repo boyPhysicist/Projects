@@ -8,6 +8,6 @@ namespace Task5.Models
     public class Data
     {
         public string ManagerId { get; set; }
-        public int CountClients { get; set; }
+        public int CountOrders { get; set; }
     }
 }

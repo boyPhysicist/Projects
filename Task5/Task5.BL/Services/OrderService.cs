@@ -188,7 +188,7 @@ namespace Task5.BL.Services
                 client = Mapper.Map<OrderDTO, Client>(orderDto);
                 DataBase.Clients.Create(client);
             }
-            if (orderDto.Date != null) order.Date = orderDto.Date.Value;
+            if (orderDto.Date != null) order.Date = orderDto.Date;
             order.Product = product;
             order.Client = client;
             order.Manager = manager;
@@ -304,11 +304,6 @@ namespace Task5.BL.Services
             }
             
         }
-
-
-
-
-
 
         public void Dispose()
         {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Task5.BL;
 using Task5.BL.DTO;
 using Task5.BL.Interfaces;
@@ -11,6 +13,7 @@ using Task5.Models;
 
 namespace Task5.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IOrderService _orderService;
@@ -18,12 +21,17 @@ namespace Task5.Controllers
         {
             _orderService = serv;
         }
-        [Authorize]
+        
         public ActionResult Index()
         {
+            
+            ApplicationUserManager userManager = HttpContext.GetOwinContext()
+                .GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            if (user != null)
+                ViewBag.Role = userManager.GetRoles(user.Id).ElementAt(0);
             return View();
         }
-        [Authorize]
         public ActionResult Products()
         {
             var productDtos = _orderService.GetProducts();
@@ -31,7 +39,6 @@ namespace Task5.Controllers
             var products = Mapper.Map<IEnumerable<ProductDTO>, List<ProductView>>(productDtos);
             return View(products);
         }
-        [Authorize]
         public ActionResult Managers()
         {
             var managersDtos = _orderService.GetManagers();
@@ -39,7 +46,6 @@ namespace Task5.Controllers
             var managers = Mapper.Map<IEnumerable<ManagerDTO>, List<ManagerView>>(managersDtos);
             return View(managers);
         }
-        [Authorize]
         public ActionResult Clients()
         {
             var clientDtos = _orderService.GetClients();
@@ -47,7 +53,6 @@ namespace Task5.Controllers
             var clients = Mapper.Map<IEnumerable<ClientDTO>, List<ClientView>>(clientDtos);
             return View(clients);
         }
-        [Authorize]
         public ActionResult Orders()
         {
             var orders = _orderService.GetOrders();
@@ -112,8 +117,9 @@ namespace Task5.Controllers
         [HttpPost]
         public ActionResult UpdateOrder(OrderView order)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<OrderView, OrderDTO>());
-            _orderService.UpdateOrder(Mapper.Map<OrderView, OrderDTO>(order));
+            if (ModelState.IsValid)
+                Mapper.Initialize(cfg => cfg.CreateMap<OrderView, OrderDTO>());
+                _orderService.UpdateOrder(Mapper.Map<OrderView, OrderDTO>(order));
             return View();
         }
 
@@ -127,8 +133,9 @@ namespace Task5.Controllers
         [HttpPost]
         public ActionResult CreateManager(ManagerView managerView)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<ManagerView, ManagerDTO>());
-            _orderService.CreateManager(Mapper.Map<ManagerView,ManagerDTO>(managerView));
+            if(ModelState.IsValid)
+                Mapper.Initialize(cfg => cfg.CreateMap<ManagerView, ManagerDTO>());
+                _orderService.CreateManager(Mapper.Map<ManagerView,ManagerDTO>(managerView));
             return Redirect("Index");
         }
         [Authorize(Roles = "admin")]
@@ -168,8 +175,9 @@ namespace Task5.Controllers
         [HttpPost]
         public ActionResult UpdateManager(ManagerView manager)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<ManagerView, ManagerDTO>());
-            _orderService.UpdateManager(Mapper.Map<ManagerView, ManagerDTO>(manager));
+            if (ModelState.IsValid)
+                Mapper.Initialize(cfg => cfg.CreateMap<ManagerView, ManagerDTO>());
+                _orderService.UpdateManager(Mapper.Map<ManagerView, ManagerDTO>(manager));
             return View();
         }
 
@@ -183,8 +191,9 @@ namespace Task5.Controllers
         [HttpPost]
         public ActionResult CreateClient(ClientView client)
         {
-            Mapper.Initialize(cfg=>cfg.CreateMap<ClientView,ClientDTO>());
-            _orderService.CreateClient(Mapper.Map<ClientView,ClientDTO>(client));
+            if (ModelState.IsValid)
+                Mapper.Initialize(cfg=>cfg.CreateMap<ClientView,ClientDTO>());
+                _orderService.CreateClient(Mapper.Map<ClientView,ClientDTO>(client));
             return Redirect("Index");
         }
         [Authorize(Roles = "admin")]
@@ -239,8 +248,9 @@ namespace Task5.Controllers
         [HttpPost]
         public ActionResult CreateProduct(ProductView product)
         {
-            Mapper.Initialize(cfg=>cfg.CreateMap<ProductView,ProductDTO>());
-            _orderService.CreateProduct(Mapper.Map<ProductView,ProductDTO>(product));
+            if (ModelState.IsValid)
+                Mapper.Initialize(cfg=>cfg.CreateMap<ProductView,ProductDTO>());
+                _orderService.CreateProduct(Mapper.Map<ProductView,ProductDTO>(product));
             return Redirect("Index");
         }
 
@@ -299,7 +309,7 @@ namespace Task5.Controllers
             var data = result.GroupBy(x => x.ManagerName).Select(y => new Data
             {
                 ManagerId = y.Key,
-                CountClients = y.Select(m => m.ClientName).Distinct().Count()
+                CountOrders = y.Select(m => m.ClientName).Count()
             }).ToList();
             return data;
         }
@@ -320,7 +330,7 @@ namespace Task5.Controllers
             products.Insert(0, "All");
             var clients = orders.Select(x => x.ClientName).Distinct().ToList();
             clients.Insert(0, "All");
-            var dates = orders.Select(x => x.Date.ToString()).Distinct().ToList();
+            var dates = orders.Select(x => x.Date.ToString("d")).Distinct().ToList();
             dates.Insert(0, "All");
 
             if (!string.IsNullOrEmpty(manager) && !manager.Equals("All"))
@@ -340,7 +350,7 @@ namespace Task5.Controllers
 
             if (!string.IsNullOrEmpty(date) && !date.Equals("All"))
             {
-                orders = orders.Where(x => x.Date.ToString() == date);
+                orders = orders.Where(x => x.Date.ToString("d") == date);
             }
             var info = new InfoView
             {

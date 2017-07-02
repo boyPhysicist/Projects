@@ -1,32 +1,39 @@
 ﻿@{
     ViewBag.Title = "Главная страница!!!";
 }
+@if (ViewBag.Role == "admin")
+{
+    @Html.ActionLink("Панель администратора", "Index","Admin")
+}
+
+<div>
+@Html.ActionLink("Сортировка", "Sort")
+</div>
 
 <div id="chart_div">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
-
-
+        
         function drawChart() {
 
             var options = {
-                'title': 'Managers/Сlient',
+                'title': 'Managers/Orders',
                 'width': 400,
                 'height': 300
             };
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'ManagerId');
-            data.addColumn('number', 'CountClients');
+            data.addColumn('number', 'CountOrders');
 
             $.getJSON('@Url.Action("Chart", "Home")', null,
                 function (result) {
                     if (result.Orders.length) {
                         $.each(result.Orders, function (index, c) {
                             data.addRow(
-                                [c.ManagerId, c.CountClients]
+                                [c.ManagerId, c.CountOrders]
                             );
                         });
                         // Отрисовка диаграммы
@@ -38,6 +45,9 @@
         }
     </script>
 </div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"
+        integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+        crossorigin="anonymous"></script>
 <div class="row">
 
     @using (Ajax.BeginForm("Products", new AjaxOptions { UpdateTargetId = "results" }))
@@ -57,11 +67,13 @@
     {
         <input type="submit" value="Показать заказы" />
     }
-
+    
     <div id="results"></div>
 </div>
+
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+
 
 
 

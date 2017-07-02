@@ -10,7 +10,7 @@ namespace Task5.BL.DTO
     {
         public int Id { get; set; }
         public decimal Sum { get; set; }
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         //public int ProductId { get; set; }
         //public int ClientId { get; set; }

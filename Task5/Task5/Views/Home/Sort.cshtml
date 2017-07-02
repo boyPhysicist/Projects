@@ -9,24 +9,32 @@
 
 <form method="get">
     <div class="form-group">
-        @Html.DisplayNameFor(model => model.Managers)
-        @Html.DropDownList("manager", Model.Managers,
-            new { @class = "form-control" })
-
-        @Html.DisplayNameFor(model => model.Products)
-        @Html.DropDownList("product", Model.Products,
-            new { @class = "form-control" })
-
-        @Html.DisplayNameFor(model => model.Clients)
-        @Html.DropDownList("client", Model.Clients,
-            new { @class = "form-control" })
-
-        @Html.DisplayNameFor(model => model.Dates)
-        @Html.DropDownList("date", Model.Dates,
-            new { @class = "form-control" })
-
+        <table>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Managers)
+                @Html.DropDownList("manager", Model.Managers,
+                new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Products)
+                    @Html.DropDownList("product", Model.Products,
+                        new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Clients)
+                    @Html.DropDownList("client", Model.Clients,
+                        new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Dates)
+                    @Html.DropDownList("date", Model.Dates,
+                new { @class = "form-control" })
+                </td>
+</tr>
+        </table>
     </div>
-    <input type="submit" value="Filter" class="btn btn-default" />
+    <input type="submit" value="Sort" class="btn btn-default" />
 </form>
 <table class="table table-striped">
     <tr>
